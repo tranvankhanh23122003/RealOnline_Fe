@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 
 // Import images
-import logoImage from "../assets/images/Logo.png";
-import facebookIcon from "../assets/images/Icon_fb.png";
-import youtubeIcon from "../assets/images/Icon_ytb.png";
-import sendIcon from "../assets/images/Icon_send.png";
+import logoImage from "../../assets/images/Logo.png";
+import youtubeIcon from "../../assets/images/Icon_ytb.png";
+import sendIcon from "../../assets/images/Icon_send.png";
 
 const Footer_menu = () => {
   const [email, setEmail] = useState("");

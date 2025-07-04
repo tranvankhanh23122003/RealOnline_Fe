@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 
 // Import images
-import logoImage from "../assets/images/Logo.png";
-import facebookIcon from "../assets/images/Icon_fb.png";
-import youtubeIcon from "../assets/images/Icon_ytb.png";
-import notificationIcon from "../assets/images/Icon_noti.png";
-import questionIcon from "../assets/images/icon_question.png";
-import colorBgIcon from "../assets/images/Icon_color_bg.png";
-import accountIcon from "../assets/images/Icon_account.png";
-import searchIcon from "../assets/images/Icon_search.png";
-import shopIcon from "../assets/images/Icon_shop.png";
-import trellIcon from "../assets/images/Icon_trello.png";
+import logoImage from "../../assets/images/Logo.png";
+import facebookIcon from "../../assets/images/Icon_fb.png";
+import youtubeIcon from "../../assets/images/Icon_ytb.png";
+import notificationIcon from "../../assets/images/Icon_noti.png";
+import questionIcon from "../../assets/images/icon_question.png";
+import colorBgIcon from "../../assets/images/Icon_color_bg.png";
+import accountIcon from "../../assets/images/Icon_account.png";
+import searchIcon from "../../assets/images/Icon_search.png";
+import shopIcon from "../../assets/images/Icon_shop.png";
+import trellIcon from "../../assets/images/Icon_trello.png";
 const Header_menu = () => {
   const [isProjectDropdownOpen, setIsProjectDropdownOpen] = useState(false);
   const [isLoaiHinhDropdownOpen, setIsLoaiHinhDropdownOpen] = useState(false);
