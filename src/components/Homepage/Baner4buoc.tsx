@@ -202,7 +202,7 @@ const Baner4buoc = () => {
 
               {/* Connecting Line (except for last item) */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-16 left-1/2 w-full h-0.5 bg-gradient-to-r from-gray-300 to-gray-400 transform translate-x-16 -translate-y-1/2">
+                <div className="">
                   <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
                     <div className="w-0 h-0 border-l-4 border-l-gray-400 border-t-2 border-b-2 border-t-transparent border-b-transparent"></div>
                   </div>
