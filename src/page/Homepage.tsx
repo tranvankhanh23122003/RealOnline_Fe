@@ -5,6 +5,8 @@ import Services_section from "../components/Homepage/Services_section";
 import Cashback_section from "../components/Homepage/Cashback_section";
 import Projects_section from "../components/Homepage/Projects_section";
 import Baner4buoc from "../components/Homepage/Baner4buoc";
+import BatDongSanGiaTot from "../components/Homepage/BatDongSanGiaTot";
+import TinTuc from "../components/Homepage/TinTuc";
 
 const Homepage = () => {
   return (
@@ -15,6 +17,8 @@ const Homepage = () => {
       <Cashback_section />
       <Projects_section />
       <Baner4buoc />
+      <BatDongSanGiaTot />
+      <TinTuc />
       <Footer_menu />
     </div>
   );
