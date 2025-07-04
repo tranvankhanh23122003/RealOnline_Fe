@@ -248,12 +248,9 @@ const Header_menu = () => {
           </div>
         )}
       </div>
-
-      {/* Navigation Menu - Desktop */}
       <div className="hidden lg:block">
         <div className="container mx-auto px-4">
-          <div className="flex items-center space-x-8 h-16">
-            {/* Loại hình */}
+          <div className="flex items-center space-x-8 h-16 pl-[420px]">
             <div className="relative">
               <button
                 onClick={() =>
