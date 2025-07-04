@@ -1,8 +1,10 @@
-import React from 'react'
+import Header_menu from "../components/Header_menu"
 
 const Homepage = () => {
   return (
-    <div className="bg-red-500">Homepage</div>
+    <div className="">
+        <Header_menu />
+    </div>
   )
 }
 
