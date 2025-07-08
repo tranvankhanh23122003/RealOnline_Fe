@@ -1,0 +1,93 @@
+.right-section {
+    flex: 0 0 30%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 500px;
+  }
+  
+  .contact-form label,
+  .contact-form .consult-title,
+  .contact-form .consent-text,
+  .contact-form .or-text,
+  .contact-form .call-option,
+  .contact-form .chat-option {
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .contact-form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .contact-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .form-contact {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  .form-contact .call-option,
+  .form-contact .chat-option {
+    flex: 0 0 48%;
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+  }
+  
+  .form-contact .call-option {
+    margin-right: 4%;
+  }
+  
+  .consult-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .benefit-text {
+    font-size: 0.9em;
+    margin: 5px 0;
+  }
+  
+  .consent-text {
+    font-size: 0.8em;
+    color: #666;
+    margin: 10px 0;
+  }
+  
+  .or-text {
+    font-size: 1em;
+    margin: 10px 0;
+  }
+  

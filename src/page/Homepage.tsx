@@ -12,7 +12,6 @@ const Homepage = () => {
   
   return (
     <div className="">
-      <Header_menu />
       <Banner_section />
       <Services_section />
       <Cashback_section />
