@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // Import images
 import logoImage from "../../assets/images/Logo.png";
@@ -11,6 +11,8 @@ import accountIcon from "../../assets/images/Icon_account.png";
 import searchIcon from "../../assets/images/Icon_search.png";
 import shopIcon from "../../assets/images/Icon_shop.png";
 import trellIcon from "../../assets/images/Icon_trello.png";
+import { useNavigate } from "react-router-dom";
+
 const Header_menu = () => {
   const [isProjectDropdownOpen, setIsProjectDropdownOpen] = useState(false);
   const [isLoaiHinhDropdownOpen, setIsLoaiHinhDropdownOpen] = useState(false);
@@ -19,6 +21,17 @@ const Header_menu = () => {
   const [isThemBoLocDropdownOpen, setIsThemBoLocDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
+  const [isSearchLoading, setIsSearchLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSearchClick = () => {
+    setIsSearchLoading(true);
+    // Small delay to show loading state, then navigate
+    setTimeout(() => {
+      navigate("/list-bds");
+      setIsSearchLoading(false);
+    }, 300);
+  };
 
   return (
     <div className="w-full bg-[#1B3459]">
@@ -138,12 +151,24 @@ const Header_menu = () => {
                   placeholder="Tìm BĐS theo khu vực hoặc dự án"
                   className="flex-1 px-4 py-3 text-gray-700 bg-white focus:outline-none"
                 />
-                <button className="bg-white text-white rounded-r-lg focus:outline-none">
-                  <img
-                    src={searchIcon}
-                    alt="Search"
-                    className="w-[68px] h-[48px]"
-                  />
+                <button
+                  className={`bg-white text-white rounded-r-lg focus:outline-none transition-opacity ${
+                    isSearchLoading ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-80'
+                  }`}
+                  onClick={handleSearchClick}
+                  disabled={isSearchLoading}
+                >
+                  {isSearchLoading ? (
+                    <div className="flex items-center justify-center w-[68px] h-[48px]">
+                      <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-[#1B3459]"></div>
+                    </div>
+                  ) : (
+                    <img
+                      src={searchIcon}
+                      alt="Search"
+                      className="w-[68px] h-[48px]"
+                    />
+                  )}
                 </button>
               </div>
             </div>
@@ -229,20 +254,30 @@ const Header_menu = () => {
                 placeholder="Tìm BĐS theo khu vực hoặc dự án"
                 className="flex-1 px-4 py-3 text-gray-700 bg-white rounded-l-lg focus:outline-none"
               />
-              <button className="px-4 py-3 bg-orange-500 text-white rounded-r-lg hover:bg-orange-600 focus:outline-none">
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
+              <button 
+                className={`px-4 py-3 bg-orange-500 text-white rounded-r-lg focus:outline-none transition-colors ${
+                  isSearchLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-orange-600'
+                }`}
+                onClick={handleSearchClick}
+                disabled={isSearchLoading}
+              >
+                {isSearchLoading ? (
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                ) : (
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
+                  </svg>
+                )}
               </button>
             </div>
           </div>
