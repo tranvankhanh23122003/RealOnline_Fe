@@ -11,7 +11,6 @@ import TinTuc from "../components/Homepage/TinTuc";
 const Homepage = () => {
   return (
     <div className="">
-      <Header_menu />
       <Banner_section />
       <Services_section />
       <Cashback_section />
