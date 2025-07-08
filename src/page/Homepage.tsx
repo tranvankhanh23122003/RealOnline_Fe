@@ -9,6 +9,7 @@ import BatDongSanGiaTot from "../components/Homepage/BatDongSanGiaTot";
 import TinTuc from "../components/Homepage/TinTuc";
 
 const Homepage = () => {
+  
   return (
     <div className="">
       <Header_menu />

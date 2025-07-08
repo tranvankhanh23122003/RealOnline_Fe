@@ -1,9 +1,9 @@
 // src/api/axiosClient.js
 import axios from 'axios';
 import queryString from 'query-string';
-
+const API_URL = import.meta.env.VITE_API_URL;
 const AxiosClient = axios.create({
-  baseURL: process.env.REACT_APP_API_URL, // Thay đổi tùy dự án
+  baseURL: `${API_URL}/api`,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -25,7 +25,7 @@ AxiosClient.interceptors.request.use(
 
 // Add response interceptor (xử lý lỗi)
 AxiosClient.interceptors.response.use(
-  (response) => response.data, // chỉ trả về phần `data`
+  (response) => response, // chỉ trả về phần `data`
   (error) => {
     // xử lý lỗi tùy theo status code
     if (error.response) {
