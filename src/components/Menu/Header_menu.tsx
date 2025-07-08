@@ -24,13 +24,74 @@ const Header_menu = () => {
   const [isSearchLoading, setIsSearchLoading] = useState(false);
   const navigate = useNavigate();
 
+  // Function to close all dropdowns
+  const closeAllDropdowns = () => {
+    setIsProjectDropdownOpen(false);
+    setIsLoaiHinhDropdownOpen(false);
+    setIsKhoangGiaDropdownOpen(false);
+    setIsDienTichDropdownOpen(false);
+    setIsThemBoLocDropdownOpen(false);
+  };
+
+  // Handle click outside to close dropdowns
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (!target.closest('.dropdown-container')) {
+        closeAllDropdowns();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  // Functions to handle dropdown toggles (close others when opening one)
+  const toggleProjectDropdown = () => {
+    closeAllDropdowns();
+    setIsProjectDropdownOpen(!isProjectDropdownOpen);
+  };
+
+  const toggleLoaiHinhDropdown = () => {
+    closeAllDropdowns();
+    setIsLoaiHinhDropdownOpen(!isLoaiHinhDropdownOpen);
+  };
+
+  const toggleKhoangGiaDropdown = () => {
+    closeAllDropdowns();
+    setIsKhoangGiaDropdownOpen(!isKhoangGiaDropdownOpen);
+  };
+
+  const toggleDienTichDropdown = () => {
+    closeAllDropdowns();
+    setIsDienTichDropdownOpen(!isDienTichDropdownOpen);
+  };
+
+  const toggleThemBoLocDropdown = () => {
+    closeAllDropdowns();
+    setIsThemBoLocDropdownOpen(!isThemBoLocDropdownOpen);
+  };
+
   const handleSearchClick = () => {
     setIsSearchLoading(true);
+    closeAllDropdowns();
     // Small delay to show loading state, then navigate
     setTimeout(() => {
       navigate("/list-bds");
       setIsSearchLoading(false);
     }, 300);
+  };
+
+  const handleMobileMenuToggle = () => {
+    closeAllDropdowns();
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleMobileSearchToggle = () => {
+    closeAllDropdowns();
+    setIsMobileSearchOpen(!isMobileSearchOpen);
   };
 
   return (
@@ -93,11 +154,9 @@ const Header_menu = () => {
           <div className="hidden lg:flex flex-1 max-w-2xl mx-8">
             <div className="relative w-full">
               <div className="flex">
-                <div className="relative">
+                <div className="relative dropdown-container">
                   <button
-                    onClick={() =>
-                      setIsProjectDropdownOpen(!isProjectDropdownOpen)
-                    }
+                    onClick={toggleProjectDropdown}
                     className="flex items-center space-x-2 bg-white px-4 py-3 border-r border-gray-300 rounded-l-lg hover:bg-gray-50 focus:outline-none"
                   >
                     <img
@@ -178,7 +237,7 @@ const Header_menu = () => {
           <div className="flex items-center space-x-2 lg:hidden">
             {/* Mobile Search Toggle */}
             <button
-              onClick={() => setIsMobileSearchOpen(!isMobileSearchOpen)}
+              onClick={handleMobileSearchToggle}
               className="p-2 text-white hover:text-orange-400"
             >
               <svg
@@ -206,7 +265,7 @@ const Header_menu = () => {
 
             {/* Mobile Menu Toggle */}
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={handleMobileMenuToggle}
               className="p-2 text-white hover:text-orange-400"
             >
               <svg
@@ -286,11 +345,9 @@ const Header_menu = () => {
       <div className="hidden lg:block">
         <div className="container mx-auto px-4">
           <div className="flex items-center space-x-8 h-16 pl-[420px]">
-            <div className="relative">
+            <div className="relative dropdown-container">
               <button
-                onClick={() =>
-                  setIsLoaiHinhDropdownOpen(!isLoaiHinhDropdownOpen)
-                }
+                onClick={toggleLoaiHinhDropdown}
                 className="flex items-center space-x-1 text-white hover:text-orange-400 focus:outline-none"
               >
                 <span>Loại hình</span>
@@ -342,11 +399,9 @@ const Header_menu = () => {
             </div>
 
             {/* Khoảng giá */}
-            <div className="relative">
+            <div className="relative dropdown-container">
               <button
-                onClick={() =>
-                  setIsKhoangGiaDropdownOpen(!isKhoangGiaDropdownOpen)
-                }
+                onClick={toggleKhoangGiaDropdown}
                 className="flex items-center space-x-1 text-white hover:text-orange-400 focus:outline-none"
               >
                 <span>Khoảng giá</span>
@@ -398,11 +453,9 @@ const Header_menu = () => {
             </div>
 
             {/* Diện tích */}
-            <div className="relative">
+            <div className="relative dropdown-container">
               <button
-                onClick={() =>
-                  setIsDienTichDropdownOpen(!isDienTichDropdownOpen)
-                }
+                onClick={toggleDienTichDropdown}
                 className="flex items-center space-x-1 text-white hover:text-orange-400 focus:outline-none"
               >
                 <span>Diện tích</span>
@@ -454,11 +507,9 @@ const Header_menu = () => {
             </div>
 
             {/* Thêm bộ lọc */}
-            <div className="relative">
+            <div className="relative dropdown-container">
               <button
-                onClick={() =>
-                  setIsThemBoLocDropdownOpen(!isThemBoLocDropdownOpen)
-                }
+                onClick={toggleThemBoLocDropdown}
                 className="flex items-center space-x-1 text-white hover:text-orange-400 focus:outline-none"
               >
                 <span>Thêm bộ lọc</span>
@@ -543,11 +594,9 @@ const Header_menu = () => {
             {/* Mobile Navigation */}
             <div className="space-y-4">
               {/* Mobile Loại hình */}
-              <div>
+              <div className="dropdown-container">
                 <button
-                  onClick={() =>
-                    setIsLoaiHinhDropdownOpen(!isLoaiHinhDropdownOpen)
-                  }
+                  onClick={toggleLoaiHinhDropdown}
                   className="flex items-center justify-between w-full text-left text-white hover:text-orange-400 focus:outline-none py-2"
                 >
                   <span>Loại hình</span>
@@ -599,11 +648,9 @@ const Header_menu = () => {
               </div>
 
               {/* Mobile Khoảng giá */}
-              <div>
+              <div className="dropdown-container">
                 <button
-                  onClick={() =>
-                    setIsKhoangGiaDropdownOpen(!isKhoangGiaDropdownOpen)
-                  }
+                  onClick={toggleKhoangGiaDropdown}
                   className="flex items-center justify-between w-full text-left text-white hover:text-orange-400 focus:outline-none py-2"
                 >
                   <span>Khoảng giá</span>
@@ -655,11 +702,9 @@ const Header_menu = () => {
               </div>
 
               {/* Mobile Diện tích */}
-              <div>
+              <div className="dropdown-container">
                 <button
-                  onClick={() =>
-                    setIsDienTichDropdownOpen(!isDienTichDropdownOpen)
-                  }
+                  onClick={toggleDienTichDropdown}
                   className="flex items-center justify-between w-full text-left text-white hover:text-orange-400 focus:outline-none py-2"
                 >
                   <span>Diện tích</span>
@@ -711,11 +756,9 @@ const Header_menu = () => {
               </div>
 
               {/* Mobile Thêm bộ lọc */}
-              <div>
+              <div className="dropdown-container">
                 <button
-                  onClick={() =>
-                    setIsThemBoLocDropdownOpen(!isThemBoLocDropdownOpen)
-                  }
+                  onClick={toggleThemBoLocDropdown}
                   className="flex items-center justify-between w-full text-left text-white hover:text-orange-400 focus:outline-none py-2"
                 >
                   <span>Thêm bộ lọc</span>
