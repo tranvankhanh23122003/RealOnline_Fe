@@ -7,17 +7,17 @@ import MainLayout from "./layout/MainLayout";
 function App() {
   return (
     <>
-     <BrowserRouter>
-     <MainLayout>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/list-bds" element={<ListBDS />} />
-        <Route path="/duAn" element={<DuAn />} />
-      </Routes>
-      </MainLayout>
-     </BrowserRouter>
+      <BrowserRouter>
+        <MainLayout>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/list-bds" element={<ListBDS />} />
+            <Route path="/duAn" element={<DuAn />} />
+          </Routes>
+        </MainLayout>
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
 export default App;
