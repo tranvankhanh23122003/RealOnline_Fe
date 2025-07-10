@@ -48,7 +48,9 @@ const List_TDC = () => {
       <div className="bg-white">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <nav className="text-sm text-gray-600">
-            <span className="hover:text-blue-600 cursor-pointer">
+            <span className="hover:text-blue-600 cursor-pointer" onClick={()=>{
+              navigate("/")
+            }}>
               Trang chủ
             </span>
             <span className="mx-2">/</span>
