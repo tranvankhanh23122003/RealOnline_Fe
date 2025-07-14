@@ -5,6 +5,7 @@ import ListBDS from "./page/ListBDS";
 import DuAn from "./page/duAn";
 import MainLayout from "./layout/MainLayout";
 import ListTDC from "./page/ListTDC";
+import SoSanhSp from "./page/SoSanhSp";
 function App() {
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
             <Route path="/list-bds" element={<ListBDS />} />
             <Route path="/duAn" element={<DuAn />} />
             <Route path="/list-tdc" element={<ListTDC />} />
+            <Route path="/so-sanh-sp" element={<SoSanhSp />} />
           </Routes>
         </MainLayout>
       </BrowserRouter>
