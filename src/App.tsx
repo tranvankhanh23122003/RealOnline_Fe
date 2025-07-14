@@ -5,7 +5,7 @@ import ListBDS from "./page/ListBDS";
 import DuAn from "./page/duAn";
 import MainLayout from "./layout/MainLayout";
 import ListTDC from "./page/ListTDC";
-import SoSanhSp from "./page/SoSanhSp";
+import SoSanhSp from "./page/SoSanhSP";
 function App() {
   return (
     <>
