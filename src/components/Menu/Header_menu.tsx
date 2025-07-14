@@ -48,12 +48,11 @@ const Header_menu = () => {
     };
   }, []);
 
-  // Functions to handle dropdown toggles (close others when opening one)
-  const toggleProjectDropdown = () => {
+  const toggleProjectDropdown: () => void = () => {
     closeAllDropdowns();
     setIsProjectDropdownOpen(!isProjectDropdownOpen);
   };
-
+  
   const toggleLoaiHinhDropdown = () => {
     closeAllDropdowns();
     setIsLoaiHinhDropdownOpen(!isLoaiHinhDropdownOpen);
