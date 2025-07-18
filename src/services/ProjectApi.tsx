@@ -5,6 +5,7 @@ const ProjectApi = {
   getAll: (params: any) => {
     return AxiosClient.get(ProjectApi.url, { params });
   },
+  
 };
 
 export default ProjectApi;

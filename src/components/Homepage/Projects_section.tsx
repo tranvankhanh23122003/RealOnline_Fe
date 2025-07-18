@@ -6,7 +6,7 @@ const Projects_section = () => {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [projects, setProjects] = useState<any[]>([]);
-
+const Navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -109,7 +109,7 @@ const Projects_section = () => {
 
                   {/* Call to Action */}
                   <div className="mt-4 pt-4 border-t border-gray-100">
-                    <button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 px-4 rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                     <button onClick={()=>Navigate('/duAn')} className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 px-4 rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
                       Xem chi tiết
                     </button>
                   </div>

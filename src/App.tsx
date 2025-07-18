@@ -6,22 +6,29 @@ import DuAn from "./page/duAn";
 import MainLayout from "./layout/MainLayout";
 import ListTDC from "./page/ListTDC";
 import SoSanhSp from "./page/SoSanhSP";
+import PhanKhu from "./page/phanKhu";
+import SanPham from "./page/sanPham";
+
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <MainLayout>
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/list-bds" element={<ListBDS />} />
-            <Route path="/duAn" element={<DuAn />} />
-            <Route path="/list-tdc" element={<ListTDC />} />
-            <Route path="/so-sanh-sp" element={<SoSanhSp />} />
-          </Routes>
-        </MainLayout>
-      </BrowserRouter>
+     <BrowserRouter>
+     <MainLayout>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/list-bds" element={<ListBDS />} />
+        <Route path="/duAn" element={<DuAn />} />
+        <Route path="/phanKhu" element={<PhanKhu />} />
+        <Route path="/sanPham" element={<SanPham />} />
+        <Route path="/list-tdc" element={<ListTDC />} />
+        <Route path="/so-sanh-sp" element={<SoSanhSp />} />
+
+      </Routes>
+      </MainLayout>
+     </BrowserRouter>
     </>
-  );
+  )
 }
+
 
 export default App;
