@@ -17,9 +17,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/list-bds" element={<ListBDS />} />
-        <Route path="/duAn" element={<DuAn />} />
-        <Route path="/phanKhu" element={<PhanKhu />} />
-        <Route path="/sanPham" element={<SanPham />} />
+        <Route path="/du-an" element={<DuAn />} />
+        <Route path="/phan-khu" element={<PhanKhu />} />
+        <Route path="/san-pham" element={<SanPham />} />
         <Route path="/list-tdc" element={<ListTDC />} />
         <Route path="/so-sanh-sp" element={<SoSanhSp />} />
 
