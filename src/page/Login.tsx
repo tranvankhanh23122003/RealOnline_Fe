@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Login_Components from '../components/Login/Login_Components'
+import Auth_Components from '../components/Login/Auth_Components'
 
 const Login = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(true)
@@ -23,7 +23,7 @@ const Login = () => {
         </button>
       )}
 
-      <Login_Components isOpen={isLoginOpen} onClose={handleCloseLogin} />
+      <Auth_Components isOpen={isLoginOpen} onClose={handleCloseLogin} />
     </div>
   )
 }

@@ -12,7 +12,7 @@ import searchIcon from "../../assets/images/Icon_search.png";
 import shopIcon from "../../assets/images/Icon_shop.png";
 import trellIcon from "../../assets/images/Icon_trello.png";
 import { useNavigate } from "react-router-dom";
-import Login_Components from "../Login/Login_Components";
+import Auth_Components from "../Login/Auth_Components";
 import SignUp_Components from "../Login/SignUp_Components";
 
 const Header_menu = () => {
@@ -137,11 +137,11 @@ const Header_menu = () => {
               <span className="flex items-center space-x-1 relative"  >
                 <img src={accountIcon} alt="Account" className="w-5 h-5" />
                 <span className="text-red-400 cursor-pointer" onClick={() => setIsSignUpOpen(true)}>Đăng ký</span>
-                <SignUp_Components isOpen={isSignUpOpen} onClose={() => setIsSignUpOpen(false)} />
+                <SignUp_Components isOpen={isSignUpOpen} onClose={() => setIsSignUpOpen(false)} onSwitchToLogin={() => {setIsSignUpOpen(false); setIsLoginOpen(true);}} />
                 <span>/</span>
                 <div className="relative cursor-pointer">
                 <span onClick={() => setIsLoginOpen(true)}>Đăng nhập</span>
-                <Login_Components isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
+                <Auth_Components isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
                 </div>
               </span>
             </div>
@@ -574,12 +574,13 @@ const Header_menu = () => {
               <div className="flex items-center space-x-2 text-white mb-3">
                 <img src={accountIcon} alt="Account" className="w-5 h-5" />
                 <div className="relative cursor-pointer">
-                <span className="text-red-400 " onClick={() => setIsSignUpOpen(true)}>Đăng ký</span>
+                <span className="text-red-400 cursor-pointer" onClick={() => setIsSignUpOpen(true)}>Đăng ký</span>
+                <SignUp_Components isOpen={isSignUpOpen} onClose={() => setIsSignUpOpen(false)} onSwitchToLogin={() => {setIsSignUpOpen(false); setIsLoginOpen(true);}} />
                 <span>/</span>
                 </div>
                 <div className="relative cursor-pointer">
                 <span onClick={() => setIsLoginOpen(true)}>Đăng nhập</span>
-                <Login_Components isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
+                <Auth_Components isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
                 </div>
               </div>
               <div className="flex items-center space-x-4 text-white text-sm">

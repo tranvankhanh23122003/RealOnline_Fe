@@ -1,21 +1,31 @@
 import type React from "react"
 import { useState } from "react"
 
-const Login_Components = ({isOpen, onClose}: {isOpen: boolean, onClose: () => void}) => {
+const Login_Components = ({isOpen, onClose, onSwitchToSignUp}: {
+  isOpen: boolean, 
+  onClose: () => void,
+  onSwitchToSignUp: () => void
+}) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [showPassword, setShowPassword] = useState(false)
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log("Login:", { email, password })
+  }
+
+  const resetForm = () => {
+    setEmail("")
+    setPassword("")
+    setShowPassword(false)
   }
   
   if(!isOpen) return null;
   
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-opacity-50 backdrop-blur-sm">
-      <div className="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full mx-4 max-h-[90vh] overflow-hidden">
+      <div className="relative bg-white rounded-2xl shadow-2xl max-w-5xl w-full mx-4 max-h-[95vh] overflow-hidden">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -79,17 +89,18 @@ const Login_Components = ({isOpen, onClose}: {isOpen: boolean, onClose: () => vo
           </div>
 
           {/* Right Section - Login Form */}
-          <div className="w-1/2 flex items-center justify-center p-8 bg-white">
+          <div className="w-1/2 flex items-center justify-center p-8 bg-white overflow-y-auto">
             <div className="max-w-sm w-full">
               <div className="text-center mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">Đăng nhập</h2>
-                <p className="text-gray-600 text-sm mt-2">Chào mừng bạn quay trở lại</p>
+                <h2 className="text-2xl font-bold text-gray-900">
+                  Đăng nhập
+                </h2>
               </div>
 
-              <form className="space-y-4" onSubmit={handleLogin}>
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>
                   <input
-                    type="text"
+                    type="email"
                     placeholder="Số điện thoại hoặc email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -140,17 +151,7 @@ const Login_Components = ({isOpen, onClose}: {isOpen: boolean, onClose: () => vo
                   </button>
                 </div>
 
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <input
-                      type="checkbox"
-                      id="remember"
-                      className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                    />
-                    <label htmlFor="remember" className="ml-2 text-sm text-gray-600">
-                      Ghi nhớ đăng nhập
-                    </label>
-                  </div>
+                <div className="flex items-center justify-end">
                   <a href="#" className="text-sm text-blue-600 hover:text-blue-500">
                     Quên mật khẩu?
                   </a>
@@ -166,9 +167,13 @@ const Login_Components = ({isOpen, onClose}: {isOpen: boolean, onClose: () => vo
                 <div className="text-center mt-4">
                   <p className="text-sm text-gray-600">
                     Chưa có tài khoản?{" "}
-                    <a href="#" className="text-blue-600 hover:text-blue-500 font-medium">
-                      Đăng ký ngay
-                    </a>
+                    <button
+                      type="button"
+                      onClick={onSwitchToSignUp}
+                      className="text-blue-600 hover:text-blue-500 font-medium"
+                    >
+                      Đăng ký
+                    </button>
                   </p>
                 </div>
               </form>

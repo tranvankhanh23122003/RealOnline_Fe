@@ -1,8 +1,11 @@
 import type React from "react"
 import { useState } from "react"
-import Login_Components from "./Login_Components"
 
-const SignUp_Components = ({isOpen, onClose}: {isOpen: boolean, onClose: () => void}) => {
+const SignUp_Components = ({isOpen, onClose, onSwitchToLogin}: {
+  isOpen: boolean, 
+  onClose: () => void,
+  onSwitchToLogin: () => void
+}) => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
@@ -10,13 +13,22 @@ const SignUp_Components = ({isOpen, onClose}: {isOpen: boolean, onClose: () => v
   const [phone, setPhone] = useState("")
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
-  const [isLoginOpen, setIsLoginOpen] = useState(false)
 
-  const handleSignUp = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log("SignUp:", { fullName, phone, email, password, confirmPassword })
   }
-  
+
+  const resetForm = () => {
+    setEmail("")
+    setPassword("")
+    setConfirmPassword("")
+    setFullName("")
+    setPhone("")
+    setShowPassword(false)
+    setShowConfirmPassword(false)
+  }
+
   if(!isOpen) return null;
   
   return (
@@ -34,54 +46,50 @@ const SignUp_Components = ({isOpen, onClose}: {isOpen: boolean, onClose: () => v
 
         <div className="flex h-full min-h-[600px]">
           {/* Left Section - Platform Information */}
-          <div className="w-1/2 p-8 flex flex-col justify-center bg-gradient-to-br from-green-50 to-green-100">
+          <div className="w-1/2 p-8 flex flex-col justify-center bg-gradient-to-br from-blue-50 to-blue-100">
             <div className="max-w-md">
               <div className="mb-6">
-                <p className="text-green-600 text-sm font-medium mb-1">Tham gia cộng đồng BDS hàng đầu</p>
-                <h2 className="text-gray-900 text-2xl font-bold mb-2">Đăng ký tài khoản TDC</h2>
+                <p className="text-blue-600 text-sm font-medium mb-1">Giải pháp giao dịch Bất động sản trực tuyến</p>
+                <h2 className="text-gray-900 text-2xl font-bold mb-2">Sàn giao dịch BDS TDC</h2>
                 <p className="text-gray-700 text-sm">
-                  Trở thành thành viên để trải nghiệm đầy đủ các tính năng tuyệt vời và nhận thông tin độc quyền về bất động sản
+                  Đăng ký ngay để trở thành thành viên và trải nghiệm đầy đủ các tính năng tuyệt vời
                 </p>
               </div>
               
               <div className="mb-6">
-                <h3 className="text-gray-900 font-semibold mb-3 text-sm">Ưu đãi thành viên mới</h3>
+                <h3 className="text-gray-900 font-semibold mb-3 text-sm">Khách đã đăng nhập</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
-                    <span className="text-green-500 mr-2">🎁</span>
+                    <span className="text-green-500 mr-2">•</span>
                     <span className="text-gray-700 text-xs">
-                      Tư vấn miễn phí từ chuyên gia BDS hàng đầu
+                      Thông tin, tài liệu chi tiết, chuyên sâu về các dự án và quỹ căn của Sàn giao dịch TDC
                     </span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-green-500 mr-2">💰</span>
-                    <span className="text-gray-700 text-xs">Ưu đãi đặc biệt cho khách hàng mới</span>
+                    <span className="text-green-500 mr-2">•</span>
+                    <span className="text-gray-700 text-xs">Công cụ tính giá, chiết khấu và dòng tiền</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-green-500 mr-2">📧</span>
-                    <span className="text-gray-700 text-xs">Nhận bản tin thị trường BDS hàng tuần</span>
+                    <span className="text-green-500 mr-2">•</span>
+                    <span className="text-gray-700 text-xs">Cập nhật sớm những thông tin về dự án mới</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-green-500 mr-2">🏠</span>
-                    <span className="text-gray-700 text-xs">Ưu tiên xem căn hộ mẫu và book lịch thăm quan</span>
+                    <span className="text-green-500 mr-2">•</span>
+                    <span className="text-gray-700 text-xs">Cập nhật biến động kinh tế vĩ mô, đề xuất bất động sản phù hợp</span>
                   </li>
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-gray-900 font-semibold mb-3 text-sm">Quyền lợi thành viên</h3>
+                <h3 className="text-gray-900 font-semibold mb-3 text-sm">Khách chưa đăng nhập</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
-                    <span className="text-blue-500 mr-2">•</span>
-                    <span className="text-gray-700 text-xs">Truy cập toàn bộ thông tin dự án và bảng giá</span>
+                    <span className="text-orange-500 mr-2">•</span>
+                    <span className="text-gray-700 text-xs">Xem thông tin về các dự án của TDC</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-500 mr-2">•</span>
-                    <span className="text-gray-700 text-xs">Sử dụng công cụ tính toán vay và lãi suất</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-500 mr-2">•</span>
-                    <span className="text-gray-700 text-xs">Lưu danh sách yêu thích và so sánh sản phẩm</span>
+                    <span className="text-orange-500 mr-2">•</span>
+                    <span className="text-gray-700 text-xs">Chuyến tham quan ảo TDC 360</span>
                   </li>
                 </ul>
               </div>
@@ -92,29 +100,30 @@ const SignUp_Components = ({isOpen, onClose}: {isOpen: boolean, onClose: () => v
           <div className="w-1/2 flex items-center justify-center p-8 bg-white overflow-y-auto">
             <div className="max-w-sm w-full">
               <div className="text-center mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">Tạo tài khoản mới</h2>
-                <p className="text-gray-600 text-sm mt-2">Điền thông tin để bắt đầu</p>
+                <h2 className="text-2xl font-bold text-gray-900">
+                  Đăng ký tài khoản
+                </h2>
               </div>
 
-              <form className="space-y-4" onSubmit={handleSignUp}>
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>
                   <input
                     type="text"
-                    placeholder="Họ và tên *"
+                    placeholder="Họ và tên"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none text-gray-900 placeholder-gray-500"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none text-gray-900 placeholder-gray-500"
                     required
                   />
                 </div>
-
+                
                 <div>
                   <input
                     type="tel"
-                    placeholder="Số điện thoại *"
+                    placeholder="Số điện thoại"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none text-gray-900 placeholder-gray-500"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none text-gray-900 placeholder-gray-500"
                     required
                   />
                 </div>
@@ -122,10 +131,10 @@ const SignUp_Components = ({isOpen, onClose}: {isOpen: boolean, onClose: () => v
                 <div>
                   <input
                     type="email"
-                    placeholder="Email *"
+                    placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none text-gray-900 placeholder-gray-500"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none text-gray-900 placeholder-gray-500"
                     required
                   />
                 </div>
@@ -133,10 +142,10 @@ const SignUp_Components = ({isOpen, onClose}: {isOpen: boolean, onClose: () => v
                 <div className="relative">
                   <input
                     type={showPassword ? "text" : "password"}
-                    placeholder="Mật khẩu *"
+                    placeholder="Mật khẩu"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none text-gray-900 placeholder-gray-500"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none text-gray-900 placeholder-gray-500"
                     required
                   />
                   <button
@@ -175,10 +184,10 @@ const SignUp_Components = ({isOpen, onClose}: {isOpen: boolean, onClose: () => v
                 <div className="relative">
                   <input
                     type={showConfirmPassword ? "text" : "password"}
-                    placeholder="Xác nhận mật khẩu *"
+                    placeholder="Xác nhận mật khẩu"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none text-gray-900 placeholder-gray-500"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none text-gray-900 placeholder-gray-500"
                     required
                   />
                   <button
@@ -218,45 +227,38 @@ const SignUp_Components = ({isOpen, onClose}: {isOpen: boolean, onClose: () => v
                   <input
                     type="checkbox"
                     id="terms"
-                    className="mt-1 w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500"
+                    className="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                     required
                   />
                   <label htmlFor="terms" className="text-xs text-gray-600">
                     Tôi đồng ý với{" "}
-                    <a href="#" className="text-green-600 hover:text-green-500 font-medium">
+                    <a href="#" className="text-blue-600 hover:text-blue-500">
                       Điều khoản sử dụng
                     </a>{" "}
                     và{" "}
-                    <a href="#" className="text-green-600 hover:text-green-500 font-medium">
+                    <a href="#" className="text-blue-600 hover:text-blue-500">
                       Chính sách bảo mật
                     </a>
                   </label>
                 </div>
 
-                <div className="flex items-start space-x-2">
-                  <input
-                    type="checkbox"
-                    id="newsletter"
-                    className="mt-1 w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500"
-                  />
-                  <label htmlFor="newsletter" className="text-xs text-gray-600">
-                    Tôi muốn nhận bản tin và thông báo về các chương trình ưu đãi từ TDC
-                  </label>
-                </div>
-
                 <button
                   type="submit"
-                  className="w-full bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 font-medium transition duration-200"
+                  className="w-full bg-blue-700 text-white py-3 px-4 rounded-lg hover:bg-blue-800 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 font-medium transition duration-200"
                 >
-                  Tạo tài khoản
+                  Đăng ký
                 </button>
 
                 <div className="text-center mt-4">
                   <p className="text-sm text-gray-600">
                     Đã có tài khoản?{" "}
-                    <a href="#" className="text-green-600 hover:text-green-500 font-medium">
-                      Đăng nhập ngay
-                    </a>
+                    <button
+                      type="button"
+                      onClick={onSwitchToLogin}
+                      className="text-blue-600 hover:text-blue-500 font-medium"
+                    >
+                      Đăng nhập
+                    </button>
                   </p>
                 </div>
               </form>
