@@ -22,7 +22,6 @@ function App() {
         <Route path="/san-pham" element={<SanPham />} />
         <Route path="/list-tdc" element={<ListTDC />} />
         <Route path="/so-sanh-sp" element={<SoSanhSp />} />
-
       </Routes>
       </MainLayout>
      </BrowserRouter>
