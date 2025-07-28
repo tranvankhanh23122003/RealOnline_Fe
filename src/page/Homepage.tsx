@@ -18,7 +18,6 @@ const Homepage = () => {
       <Baner4buoc />
       <BatDongSanGiaTot />
       <TinTuc />
-      <Footer_menu />
     </div>
   );
 };
