@@ -7,7 +7,7 @@ import './style.css'
 const TinTuc = () => {
   const [currentLarge, setCurrentLarge] = useState(0);
   const [currentSmall1, setCurrentSmall1] = useState(0);
-  const [currentSmall2, setCurrentSmall2] = useState(1);
+  
   const images = [Slide1, Slide2, Slide3];
 
 

@@ -1,4 +1,3 @@
-import React from "react";
 import moneyIcon from "../../assets/images/Icon_money.png";
 
 const Cashback_section = () => {

@@ -1,4 +1,4 @@
-import React from "react";
+
 import ImageTest from "../../assets/images/ImageTest.png";
 
 const TinTuc = () => {

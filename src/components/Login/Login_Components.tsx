@@ -14,12 +14,6 @@ const Login_Components = ({isOpen, onClose, onSwitchToSignUp}: {
     e.preventDefault()
     console.log("Login:", { email, password })
   }
-
-  const resetForm = () => {
-    setEmail("")
-    setPassword("")
-    setShowPassword(false)
-  }
   
   if(!isOpen) return null;
   

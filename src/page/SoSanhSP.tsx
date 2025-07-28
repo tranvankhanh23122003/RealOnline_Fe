@@ -1,4 +1,4 @@
-import React from "react";
+
 import SoSanh from "../components/SoSanhSP/SoSanh";
 
 const SoSanhSp = () => {

@@ -46,7 +46,6 @@ const List_BDS = () => {
   }));
 
   const totalPages = 5;
-  const itemsPerPage = 16;
   const totalResults = 34;
 
   const renderStars = (rating: number) => {

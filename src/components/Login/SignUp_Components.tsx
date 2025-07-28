@@ -21,12 +21,6 @@ const SignUp_Components = ({
     console.log("SignUp:", { phone, password });
   };
 
-  const resetForm = () => {
-    setPhone("");
-    setPassword("");
-    setShowPassword(false);
-  };
-
   if (!isOpen) return null;
 
   return (

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+
 import Slide1 from "../assets/images/baner1.png";
 import Slide2 from "../assets/images/khu-cong-nghiep.png";
 import Slide3 from "../assets/images/baner1.png";

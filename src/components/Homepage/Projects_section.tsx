@@ -19,18 +19,6 @@ const Navigate = useNavigate();
     fetchData();
   }, []);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) =>
-      prev + 3 >= projects.length ? 0 : prev + 1
-    );
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) =>
-      prev === 0 ? Math.max(0, projects.length - 3) : prev - 1
-    );
-  };
-
   const visibleProjects = projects.slice(currentSlide, currentSlide + 3);
   while (visibleProjects.length < 3 && projects.length > 3) {
     const remainingIndex =
