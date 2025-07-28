@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ChevronDownIcon, MapPinIcon } from "@heroicons/react/24/outline";
 
 // Import images
@@ -48,9 +48,12 @@ const List_TDC = () => {
       <div className="bg-white">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <nav className="text-sm text-gray-600">
-            <span className="hover:text-blue-600 cursor-pointer" onClick={()=>{
-              navigate("/")
-            }}>
+            <span
+              className="hover:text-blue-600 cursor-pointer"
+              onClick={() => {
+                navigate("/");
+              }}
+            >
               Trang chủ
             </span>
             <span className="mx-2">/</span>
@@ -138,7 +141,7 @@ const List_TDC = () => {
 
                 {/* TDC badge */}
                 <div className="absolute top-3 right-3">
-                 <img src={logoTDC} alt="" className="w-20 h-10"/>
+                  <img src={logoTDC} alt="" className="w-20 h-10" />
                 </div>
 
                 {/* Heart icon */}
@@ -188,13 +191,13 @@ const List_TDC = () => {
         <div className="relative bg-gradient-to-r from-blue-800 to-blue-900 rounded-lg overflow-hidden">
           {/* Background image overlay */}
           <div className="absolute inset-0 bg-opacity-40">
-          <img
-            src={testImage}
-            alt="Background"
-            className="w-full h-full object-cover"
-          />
+            <img
+              src={testImage}
+              alt="Background"
+              className="w-full h-full object-cover"
+            />
           </div>
-         
+
           <div className="relative z-10 px-8 py-12 text-center text-white">
             <h2 className="text-3xl font-bold mb-4">
               Đăng ký tham quan dự án và căn hộ mẫu

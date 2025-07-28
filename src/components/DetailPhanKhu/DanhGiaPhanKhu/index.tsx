@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import Slide1 from "../../../assets/images/baner1.png";
 import Slide2 from "../../../assets/images/khu-cong-nghiep.png";
 import "./style.css";

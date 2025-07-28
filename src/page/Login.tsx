@@ -1,19 +1,19 @@
-import React, { useState } from 'react'
-import Auth_Components from '../components/Login/Auth_Components'
+import { useState } from "react";
+import Auth_Components from "../components/Login/Auth_Components";
 
 const Login = () => {
-  const [isLoginOpen, setIsLoginOpen] = useState(true)
+  const [isLoginOpen, setIsLoginOpen] = useState(true);
 
   const handleCloseLogin = () => {
-    setIsLoginOpen(false)
-  }
+    setIsLoginOpen(false);
+  };
 
   const handleOpenLogin = () => {
-    setIsLoginOpen(true)
-  }
+    setIsLoginOpen(true);
+  };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">  
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       {!isLoginOpen && (
         <button
           onClick={handleOpenLogin}
@@ -25,7 +25,7 @@ const Login = () => {
 
       <Auth_Components isOpen={isLoginOpen} onClose={handleCloseLogin} />
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

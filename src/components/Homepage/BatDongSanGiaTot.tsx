@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ImageTest from "../../assets/images/ImageTest.png";
 const BatDongSanGiaTot = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

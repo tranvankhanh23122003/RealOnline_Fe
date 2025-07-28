@@ -1,8 +1,5 @@
-import { useState } from "react";
-
 import "./style.css";
 export default function DiemNoiBatPhanKhu() {
-  const [showMore, setShowMore] = useState(false);
 
   return (
     <div className="highlight-section">

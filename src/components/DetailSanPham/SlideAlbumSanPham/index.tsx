@@ -1,7 +1,7 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import './style.css'
+import "./style.css";
 
 interface Props {
   images: string[];
@@ -32,7 +32,10 @@ export default function SliderWithMiniSlides({
     <div className="sanpham-slider-section">
       <div className="sanpham-slider-wrapper">
         <div className="sanpham-slider-container">
-          <button onClick={goToPrevSlide} className="sanpham-control-btn prev-btn">
+          <button
+            onClick={goToPrevSlide}
+            className="sanpham-control-btn prev-btn"
+          >
             <LeftOutlined />
           </button>
           <div className="sanpham-slider">
@@ -40,7 +43,9 @@ export default function SliderWithMiniSlides({
               src={images[currentSlide]}
               alt={`Slide ${currentSlide + 1}`}
               className="sanpham-slider-image"
-              onClick={() => handleImageClick(images[currentSlide], currentSlide)}
+              onClick={() =>
+                handleImageClick(images[currentSlide], currentSlide)
+              }
             />
             <div className="sanpham-top-left-text">
               Trang chủ / {title}
@@ -54,7 +59,10 @@ export default function SliderWithMiniSlides({
               <p>{subtitle}</p>
             </div>
           </div>
-          <button onClick={goToNextSlide} className="sanpham-control-btn next-btn">
+          <button
+            onClick={goToNextSlide}
+            className="sanpham-control-btn next-btn"
+          >
             <RightOutlined />
           </button>
         </div>

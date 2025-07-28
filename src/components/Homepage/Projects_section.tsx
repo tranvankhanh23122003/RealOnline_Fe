@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import logoImage from "../../assets/images/Logo.png";
 import ProjectApi from "../../services/ProjectApi";
 import { useNavigate } from "react-router-dom";
@@ -6,7 +6,7 @@ const Projects_section = () => {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [projects, setProjects] = useState<any[]>([]);
-const Navigate = useNavigate();
+  const Navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -34,9 +34,12 @@ const Navigate = useNavigate();
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-800">
             Dự án trọng điểm
           </h2>
-         <span className="text-blue-500 text-2xl cursor-pointer" onClick={() => navigate("/list-tdc")}>
-          Xem tất cả
-         </span>
+          <span
+            className="text-blue-500 text-2xl cursor-pointer"
+            onClick={() => navigate("/list-tdc")}
+          >
+            Xem tất cả
+          </span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -80,16 +83,43 @@ const Navigate = useNavigate();
                   </h3>
                   <div className="space-y-2 text-sm text-gray-600">
                     <div className="flex items-center">
-                      <svg className="w-4 h-4 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.79 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.79 4 8 4s8-1.79 8-4M4 7c0-2.21 3.79-4 8-4s8 1.79 8 4" />
+                      <svg
+                        className="w-4 h-4 mr-2 text-blue-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M4 7v10c0 2.21 3.79 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.79 4 8 4s8-1.79 8-4M4 7c0-2.21 3.79-4 8-4s8 1.79 8 4"
+                        />
                       </svg>
-                      <span>Tổng diện tích: {project.DienTich || "Chưa cập nhật"}</span>
+                      <span>
+                        Tổng diện tích: {project.DienTich || "Chưa cập nhật"}
+                      </span>
                     </div>
 
                     <div className="flex items-start">
-                      <svg className="w-4 h-4 mr-2 mt-0.5 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <svg
+                        className="w-4 h-4 mr-2 mt-0.5 text-red-500 flex-shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
                       </svg>
                       <span className="leading-tight">{project.DiaChi}</span>
                     </div>
@@ -97,7 +127,10 @@ const Navigate = useNavigate();
 
                   {/* Call to Action */}
                   <div className="mt-4 pt-4 border-t border-gray-100">
-                     <button onClick={()=>Navigate('/duAn')} className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 px-4 rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                    <button
+                      onClick={() => Navigate("/duAn")}
+                      className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 px-4 rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
+                    >
                       Xem chi tiết
                     </button>
                   </div>

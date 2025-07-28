@@ -1,4 +1,5 @@
 import "./style.css";
+import Slider1 from "../../../assets/images/baner1.png";
 export default function InFoChiTietSanPham() {
   return (
     <div className="infochitiet-section">

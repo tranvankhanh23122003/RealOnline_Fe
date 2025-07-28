@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 // Import images
 import logoImage from "../../assets/images/Logo.png";
@@ -41,14 +41,14 @@ const Header_menu = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Element;
-      if (!target.closest('.dropdown-container')) {
+      if (!target.closest(".dropdown-container")) {
         closeAllDropdowns();
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -56,7 +56,7 @@ const Header_menu = () => {
     closeAllDropdowns();
     setIsProjectDropdownOpen(!isProjectDropdownOpen);
   };
-  
+
   const toggleLoaiHinhDropdown = () => {
     closeAllDropdowns();
     setIsLoaiHinhDropdownOpen(!isLoaiHinhDropdownOpen);
@@ -134,14 +134,29 @@ const Header_menu = () => {
                 <span>Màu nền</span>
               </span>
               <span>|</span>
-              <span className="flex items-center space-x-1 relative"  >
+              <span className="flex items-center space-x-1 relative">
                 <img src={accountIcon} alt="Account" className="w-5 h-5" />
-                <span className="text-red-400 cursor-pointer" onClick={() => setIsSignUpOpen(true)}>Đăng ký</span>
-                <SignUp_Components isOpen={isSignUpOpen} onClose={() => setIsSignUpOpen(false)} onSwitchToLogin={() => {setIsSignUpOpen(false); setIsLoginOpen(true);}} />
+                <span
+                  className="text-red-400 cursor-pointer"
+                  onClick={() => setIsSignUpOpen(true)}
+                >
+                  Đăng ký
+                </span>
+                <SignUp_Components
+                  isOpen={isSignUpOpen}
+                  onClose={() => setIsSignUpOpen(false)}
+                  onSwitchToLogin={() => {
+                    setIsSignUpOpen(false);
+                    setIsLoginOpen(true);
+                  }}
+                />
                 <span>/</span>
                 <div className="relative cursor-pointer">
-                <span onClick={() => setIsLoginOpen(true)}>Đăng nhập</span>
-                <Auth_Components isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
+                  <span onClick={() => setIsLoginOpen(true)}>Đăng nhập</span>
+                  <Auth_Components
+                    isOpen={isLoginOpen}
+                    onClose={() => setIsLoginOpen(false)}
+                  />
                 </div>
               </span>
             </div>
@@ -161,11 +176,7 @@ const Header_menu = () => {
                     onClick={toggleProjectDropdown}
                     className="flex items-center space-x-2 bg-white px-4 py-3 border-r border-gray-300 rounded-l-lg hover:bg-gray-50 focus:outline-none"
                   >
-                    <img
-                      src={trellIcon}
-                      alt="trell"
-                      className="w-4 h-4"
-                    />
+                    <img src={trellIcon} alt="trell" className="w-4 h-4" />
                     <span className="text-gray-700">Dự án</span>
                     <svg
                       className="w-4 h-4 text-gray-500"
@@ -214,7 +225,9 @@ const Header_menu = () => {
                 />
                 <button
                   className={`bg-white text-white rounded-r-lg focus:outline-none transition-opacity ${
-                    isSearchLoading ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-80'
+                    isSearchLoading
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:opacity-80"
                   }`}
                   onClick={handleSearchClick}
                   disabled={isSearchLoading}
@@ -315,9 +328,11 @@ const Header_menu = () => {
                 placeholder="Tìm BĐS theo khu vực hoặc dự án"
                 className="flex-1 px-4 py-3 text-gray-700 bg-white rounded-l-lg focus:outline-none"
               />
-              <button 
+              <button
                 className={`px-4 py-3 bg-orange-500 text-white rounded-r-lg focus:outline-none transition-colors ${
-                  isSearchLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-orange-600'
+                  isSearchLoading
+                    ? "opacity-50 cursor-not-allowed"
+                    : "hover:bg-orange-600"
                 }`}
                 onClick={handleSearchClick}
                 disabled={isSearchLoading}
@@ -574,13 +589,28 @@ const Header_menu = () => {
               <div className="flex items-center space-x-2 text-white mb-3">
                 <img src={accountIcon} alt="Account" className="w-5 h-5" />
                 <div className="relative cursor-pointer">
-                <span className="text-red-400 cursor-pointer" onClick={() => setIsSignUpOpen(true)}>Đăng ký</span>
-                <SignUp_Components isOpen={isSignUpOpen} onClose={() => setIsSignUpOpen(false)} onSwitchToLogin={() => {setIsSignUpOpen(false); setIsLoginOpen(true);}} />
-                <span>/</span>
+                  <span
+                    className="text-red-400 cursor-pointer"
+                    onClick={() => setIsSignUpOpen(true)}
+                  >
+                    Đăng ký
+                  </span>
+                  <SignUp_Components
+                    isOpen={isSignUpOpen}
+                    onClose={() => setIsSignUpOpen(false)}
+                    onSwitchToLogin={() => {
+                      setIsSignUpOpen(false);
+                      setIsLoginOpen(true);
+                    }}
+                  />
+                  <span>/</span>
                 </div>
                 <div className="relative cursor-pointer">
-                <span onClick={() => setIsLoginOpen(true)}>Đăng nhập</span>
-                <Auth_Components isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
+                  <span onClick={() => setIsLoginOpen(true)}>Đăng nhập</span>
+                  <Auth_Components
+                    isOpen={isLoginOpen}
+                    onClose={() => setIsLoginOpen(false)}
+                  />
                 </div>
               </div>
               <div className="flex items-center space-x-4 text-white text-sm">

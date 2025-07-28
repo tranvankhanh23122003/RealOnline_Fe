@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import './style.css'
 interface SliderWithAlbumProps {

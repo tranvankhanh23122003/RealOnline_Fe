@@ -1,9 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import {
-  MdDashboard,
-  MdMiscellaneousServices,
-} from "react-icons/md";
+import { useState } from "react";
+import { MdDashboard, MdMiscellaneousServices } from "react-icons/md";
 import { FaProjectDiagram } from "react-icons/fa";
 import { GoLocation } from "react-icons/go";
 import { GiTreeGrowth } from "react-icons/gi";
@@ -32,7 +29,17 @@ import MatBang3DPhanKhu from "../components/DetailPhanKhu/MatBang3DPhanKhu";
 import PriceTable from "../components/DetailPhanKhu/PricePhanKhu";
 import TinTucPhanKhu from "../components/DetailPhanKhu/TinTucPhanKhu";
 
-const images: string[] = [Slide1, Slide2, Slide3, Slide4, Slide5, Slide6, Slide7, Slide8, Slide9];
+const images: string[] = [
+  Slide1,
+  Slide2,
+  Slide3,
+  Slide4,
+  Slide5,
+  Slide6,
+  Slide7,
+  Slide8,
+  Slide9,
+];
 
 const duLieuPhanKhuA = [
   {

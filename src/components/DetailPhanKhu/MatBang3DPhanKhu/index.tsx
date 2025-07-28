@@ -6,9 +6,6 @@ import './style.css';
 export default function MatBang3DPhanKhu() {
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
-const images =[
-    Slide1
-]
   const [scale, setScale] = useState(1);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);

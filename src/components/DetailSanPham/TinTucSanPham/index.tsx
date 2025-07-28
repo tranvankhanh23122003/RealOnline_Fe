@@ -1,13 +1,13 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import Slide1 from "../../../assets/images/baner1.png";
 import Slide2 from "../../../assets/images/khu-cong-nghiep.png";
 import Slide3 from "../../../assets/images/baner1.png";
 import "./style.css";
 
 const TinTucSanPham = () => {
-  const [currentLarge, setCurrentLarge] = useState(0);
-  const [currentSmall1, setCurrentSmall1] = useState(0);
+  const [currentLarge] = useState(0);
+  const [currentSmall1] = useState(0);
   const images = [Slide1, Slide2, Slide3];
 
   return (
@@ -49,7 +49,7 @@ const TinTucSanPham = () => {
             </div>
             <div className="sanpham-slide-small">
               <img
-                src={images[currentSmall2]}
+                src={images[1]}
                 alt="Slide nhỏ 2"
                 className="sanpham-slide-image"
               />

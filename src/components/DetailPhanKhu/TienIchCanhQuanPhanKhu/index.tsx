@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import "./style.css";
 import Slide1 from "../../../assets/images/baner1.png";
@@ -30,7 +30,6 @@ const images: ImageItem[] = [
     description:
       "Công viên Adventure Park với không gian xanh mát, khu vui chơi hiện đại, và tiện ích giải trí đa dạng cho gia đình.",
   },
-  
 ];
 
 export default function TienIchCanhQuanPhanKhu() {
