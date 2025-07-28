@@ -1,4 +1,3 @@
-import React from 'react'
 import List_TDC from '../components/List_TDC/List_TDC'
 
 const ListTDC = () => {
