@@ -11,7 +11,7 @@ type RequestItem = {
   status: string;
 };
 
-const FavoriteList = () => {
+const RequestList = () => {
   const data: RequestItem[] = [
     { id: 1, requestCode: "23844", requestType: "Hỗ trợ kỹ thuật", createdTime: "2025-07-25 14:00", consultationTime: "2025-07-26 10:00", status: "Đang xử lý" },
     { id: 2, requestCode: "23845", requestType: "Khiếu nại", createdTime: "2025-07-24 09:30", consultationTime: "2025-07-25 14:00", status: "Đã hủy" },
@@ -118,7 +118,7 @@ const FavoriteList = () => {
                   </div>
                   <div className="profile-info-item">
                     <label>Khu:</label>
-                    <span>Khu A</span>
+                    <span>Khu A</span>  
                   </div>
                   <div className="profile-info-item">
                     <label>Bất động sản:</label>
@@ -134,4 +134,4 @@ const FavoriteList = () => {
   );
 };
 
-export default FavoriteList;
+export default RequestList;

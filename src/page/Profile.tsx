@@ -7,7 +7,7 @@ import ProjectGridBDS from "../components/Profile/PropertyGrid_BDS";
 import ProjectGridTDC from "../components/Profile/PropertyGrid_TDS";
 import InfoAccount from "../components/Profile/ThongTinTaiKhoan";
 import ChangePassword from "../components/Profile/ThayDoiMatKhau";
-import FavoriteList from "../components/Profile/MucDanhSachYeuThich";
+import RequestList from "../components/Profile/MucDanhSachYeuCau";
 import AppointmentList from "../components/Profile/MucDanhSachLichHen"; 
 import "../styles/Profile.css";
 import PropertyGridBDS from "../components/Profile/PropertyGrid_BDS";
@@ -190,7 +190,7 @@ const Profile = () => {
             )}
             {selectedCategory === "Thông tin tài khoản" && <InfoAccount />}
             {selectedCategory === "Thay đổi mật khẩu" && <ChangePassword />}
-            {selectedCategory === "Danh sách yêu cầu" && <FavoriteList />}
+            {selectedCategory === "Danh sách yêu cầu" && <RequestList />}
             {selectedCategory === "Danh sách lịch hẹn" && <AppointmentList />}
             {selectedItem && (
               <div className="mt-4 p-4 bg-gray-100 rounded">
