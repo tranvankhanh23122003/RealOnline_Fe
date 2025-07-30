@@ -1,73 +1,76 @@
-
 .profile-new-list {
-  padding: 20px 24px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
   font-family: Arial, sans-serif;
 }
 
 .profile-title {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: bold;
-  color: #2d3748;
-  margin-bottom: 24px;
+  color: #1B3459;
+  margin-bottom: 20px;
 }
 
 .profile-filters {
   display: flex;
-  gap: 16px;
-  margin-bottom: 16px;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .profile-filter-button {
   padding: 8px 16px;
-  background-color: #e2e8f0;
-  border: none;
+  border: 1px solid #d1d5db;
   border-radius: 4px;
+  background-color: #ffffff;
+  color: #1B3459;
+  font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s;
 }
 
 .profile-filter-button:hover {
-  background-color: #cbd5e0;
+  background-color: #f3f4f6;
 }
 
 .profile-table-container {
   overflow-x: auto;
-  padding-left: 16px;
-  padding-right: 16px;
 }
 
 .profile-request-table {
   width: 100%;
   border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .profile-request-table th,
 .profile-request-table td {
+  padding: 12px;
   text-align: center;
-  padding: 12px 8px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .profile-request-table th {
-  background-color: #f7fafc;
+  background-color: #f9fafb;
+  font-weight: bold;
+  color: #1B3459;
+  font-size: 14px;
 }
 
-.profile-request-table td:last-child {
-  background-color: transparent;
+.profile-request-table td {
+  font-size: 14px;
+  color: #374151;
 }
 
-.profile-request-table td:last-child[data-status="Đã hủy"] {
-  background-color: #EA1616;
-  color: white;
+.profile-request-table tr {
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-.profile-request-table td:last-child[data-status="Đã xử lý"] {
-  background-color: #50A34A;
-  color: white;
-}
-
-.profile-request-table td:last-child[data-status="Chưa xử lý"] {
-  background-color: #D9D9D9;
+.profile-request-table tr:hover {
+  background-color: #f3f4f6;
 }
 
 .profile-request-detail-overlay {
@@ -84,58 +87,59 @@
 }
 
 .profile-request-detail-container {
-  background-color: white;
-  padding: 24px;
+  background-color: #ffffff;
   border-radius: 8px;
   width: 90%;
-  max-width: 600px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border: 1px solid #e2e8f0;
-  background-color: #f9fafb;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 20px;
   position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .profile-request-detail-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .profile-request-detail-header h2 {
-  margin: 0;
-  font-size: 1.5rem;
-  color: #2d3748;
+  font-size: 20px;
+  font-weight: bold;
+  color: #1B3459;
 }
 
 .profile-close-button {
+  font-size: 24px;
   background: none;
   border: none;
-  font-size: 1.5rem;
   cursor: pointer;
-  color: #666;
+  color: #374151;
 }
 
 .profile-request-detail-content {
   display: flex;
-  flex-direction: column;
   gap: 20px;
 }
 
 .profile-contact-info,
 .profile-general-info {
+  flex: 1;
   padding: 16px;
-  background-color: white;
+  background-color: #ffffff;
   border-radius: 4px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #e5e7eb;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .profile-contact-info h3,
 .profile-general-info h3 {
-  font-size: 1.2rem;
-  color: #2d3748;
-  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #1B3459;
+  margin-bottom: 12px;
 }
 
 .profile-contact-row {
@@ -152,7 +156,7 @@
 .profile-info-item label {
   display: block;
   font-weight: bold;
-  color: #555;
+  color: #1B3459;
   margin-bottom: 5px;
 }
 
@@ -162,6 +166,7 @@
   padding: 5px;
   background-color: #f9f9f9;
   border-radius: 4px;
+  color: #374151;
 }
 
 .profile-consultation-info {
@@ -171,14 +176,13 @@
 .profile-consultation-info label {
   display: block;
   font-weight: bold;
-  color: #555;
+  color: #1B3459;
 }
 
 .profile-info-container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  align-items: stretch;
+  gap: 8px;
 }
 
 .profile-info-item {
@@ -188,13 +192,41 @@
 }
 
 @media (max-width: 768px) {
+  .profile-new-list {
+    padding: 15px;
+  }
+
+  .profile-title {
+    font-size: 20px;
+  }
+
+  .profile-filter-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .profile-request-table th,
+  .profile-request-table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+
   .profile-request-detail-container {
     width: 95%;
     padding: 16px;
   }
 
+  .profile-request-detail-header h2 {
+    font-size: 18px;
+  }
+
+  .profile-close-button {
+    font-size: 20px;
+  }
+
   .profile-request-detail-content {
-    gap: 15px;
+    flex-direction: column;
+    gap: 16px;
   }
 
   .profile-contact-info,
@@ -207,19 +239,15 @@
     gap: 10px;
   }
 
-  .profile-request-table th,
-  .profile-request-table td {
-    padding: 8px;
-    font-size: 0.9rem;
+  .profile-contact-info h3,
+  .profile-general-info h3 {
+    font-size: 14px;
   }
 
-  .profile-filters {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .profile-filter-button {
-    width: 100%;
+  .profile-contact-item,
+  .profile-consultation-info,
+  .profile-info-item {
+    font-size: 12px;
   }
 }
 
@@ -229,12 +257,12 @@
   }
 
   .profile-title {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .profile-filter-button {
-    font-size: 12px;
-    padding: 6px 12px;
+    font-size: 10px;
+    padding: 6px 8px;
   }
 
   .profile-request-table th,
@@ -256,16 +284,16 @@
   }
 
   .profile-request-detail-header h2 {
-    font-size: 1.2rem;
+    font-size: 16px;
   }
 
   .profile-close-button {
-    font-size: 1.2rem;
+    font-size: 18px;
   }
 
   .profile-contact-info h3,
   .profile-general-info h3 {
-    font-size: 1rem;
+    font-size: 12px;
   }
 
   .profile-contact-item,

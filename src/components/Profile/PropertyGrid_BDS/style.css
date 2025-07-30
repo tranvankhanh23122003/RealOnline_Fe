@@ -96,6 +96,9 @@
     display: flex;
     align-items: center;
     gap: 0.25rem;
+    white-space: nowrap; /* Không cho xuống dòng */
+    font-size: 0.75rem;
+    color: #4b5563;
   }
   
   .profile-property-address {

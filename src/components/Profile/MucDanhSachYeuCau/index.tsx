@@ -39,9 +39,13 @@ const RequestList = () => {
       case "Đã xử lý":
         return "#50A34A";
       case "Chưa xử lý":
-        return "#D9D9D9";
+        return "#DF5800";
+      case "Đang xử lý":
+        return "#1B3459";
+      case "Hoàn thành":
+        return "#50A34A";
       default:
-        return "transparent";
+        return "#374151";
     }
   };
 
@@ -73,7 +77,7 @@ const RequestList = () => {
                 <td className="profile-text-center">{item.requestType}</td>
                 <td className="profile-text-center">{item.createdTime}</td>
                 <td className="profile-text-center">{item.consultationTime}</td>
-                <td className="profile-text-center" style={{ backgroundColor: getStatusColor(item.status) }}>
+                <td className="profile-text-center" style={{ color: getStatusColor(item.status) }}>
                   {item.status}
                 </td>
               </tr>

@@ -34,10 +34,43 @@
   
   .profile-table__status {
     font-size: 14px;
-    color: #666;
     padding: 4px 8px;
     border-radius: 4px;
+    font-weight: 500;
+    text-transform: capitalize;
   }
+  
+  /* Màu cho từng trạng thái */
+  .status-pending {
+    background-color: #fff4e5;
+    color: #d35400;
+    border: 1px solid #f5c29f;
+  }
+  
+  .status-completed {
+    background-color: #e6f9f0;
+    color: #27ae60;
+    border: 1px solid #8ee4b6;
+  }
+  
+  .status-processing {
+    background-color: #e8f1ff;
+    color: #2d7efc;
+    border: 1px solid #9dc0fc;
+  }
+  
+  .status-cancelled {
+    background-color: #ffeaea;
+    color: #e74c3c;
+    border: 1px solid #f5b5b5;
+  }
+  
+  .status-default {
+    background-color: #f0f0f0;
+    color: #888;
+    border: 1px solid #ccc;
+  }
+  
   
   .profile-table__divider {
     border: 0;
@@ -140,6 +173,26 @@
     .profile-table__remaining {
       font-size: 12px;
     }
+  }
+  .profile-table__action {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+  }
+  
+  .profile-table__button {
+    background-color: #DC4405;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;  
+    transition: background-color 0.2s;
+  }
+  
+  .profile-table__button:hover {
+    background-color: #b83604;
   }
   
   @media (min-width: 769px) and (max-width: 1024px) {

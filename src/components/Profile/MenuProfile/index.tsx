@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Slide1 from "../../../assets/images/baner1.png";
 import "./style.css";
 
 interface MenuProps {
@@ -17,18 +18,17 @@ const Menu: React.FC<MenuProps> = ({ categories, selectedCategory, setSelectedCa
 
   const toggleExpand = (category: string) => {
     setExpanded((prev) => ({ ...prev, [category]: !prev[category] }));
-    // Không đặt selectedCategory khi nhấp vào "Quản lý căn"
   };
 
   return (
     <div className="profile-menu-container">
       <div className="profile-menu-header">
         <img
-          src="https://via.placeholder.com/40"
+          src={Slide1}
           alt="User"
           className="profile-menu-avatar"
         />
-        <h2 className="profile-menu-title">Quản lý căn</h2>
+        <h2 className="profile-menu-title">Trần Văn Khánh</h2>
       </div>
       <div className="profile-menu-section">
         <div className="profile-menu-item" onClick={() => toggleExpand("Quản lý căn")}>
@@ -68,7 +68,7 @@ const Menu: React.FC<MenuProps> = ({ categories, selectedCategory, setSelectedCa
               className={`profile-submenu-item ${selectedCategory === "Quản lý đồng" ? "active" : ""}`}
               onClick={() => setSelectedCategory("Quản lý đồng")}
             >
-              Quản lý đồng
+              Quản lý hợp đồng
             </div>
             <div
               className={`profile-submenu-item ${selectedCategory === "Quản lý giao dịch" ? "active" : ""}`}
