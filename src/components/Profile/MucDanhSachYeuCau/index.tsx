@@ -53,10 +53,20 @@ const RequestList = () => {
     <div className="profile-new-list">
       <h1 className="profile-title">Danh sách yêu cầu</h1>
       <div className="profile-filters">
-        <button className="profile-filter-button">Loại yêu cầu</button>
-        <button className="profile-filter-button">Trạng thái</button>
-        <button className="profile-filter-button">Thời gian tạo</button>
-      </div>
+  <button className="profile-filter-button">
+    <i className="fas fa-layer-group" style={{ marginRight: "8px" }}></i>
+    Loại yêu cầu
+  </button>
+  <button className="profile-filter-button">
+    <i className="fas fa-tasks" style={{ marginRight: "8px" }}></i>
+    Trạng thái
+  </button>
+  <button className="profile-filter-button">
+    <i className="fas fa-calendar-alt" style={{ marginRight: "8px" }}></i>
+    Thời gian tạo
+  </button>
+</div>
+
       <div className="profile-table-container">
         <table className="profile-request-table">
           <thead>

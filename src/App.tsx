@@ -9,6 +9,7 @@ import SoSanhSp from "./page/SoSanhSP";
 import PhanKhu from "./page/phanKhu";
 import SanPham from "./page/sanPham";
 import Profile from "./page/Profile";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function App() {
   return (
