@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ChevronDownIcon,
   ChevronLeftIcon,
@@ -25,10 +25,12 @@ interface PropertyGridProps {
 
 const PropertyGridBDS: React.FC<PropertyGridProps> = ({ properties }) => {
   const navigate = useNavigate();
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6; // Số mục trên mỗi trang
 
   const renderStars = (rating: number) => {
     return (
-      <div className="flex space-x-1">
+      <div className="profile-property-stars">
         {[1, 2, 3, 4, 5].map((star) => (
           <span
             key={star}
@@ -43,10 +45,25 @@ const PropertyGridBDS: React.FC<PropertyGridProps> = ({ properties }) => {
     );
   };
 
+  // Tính toán phân trang
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentProperties = properties.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Tổng số trang
+  const totalPages = Math.ceil(properties.length / itemsPerPage);
+
+  // Xử lý chuyển trang
+  const handlePageChange = (page: number) => {
+    if (page > 0 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
+
   return (
     <div className="profile-property-grid-container">
       <div className="profile-property-grid">
-        {properties.map((property) => (
+        {currentProperties.map((property) => (
           <div key={property.id} className="profile-property-card">
             <div className="relative">
               <img
@@ -73,35 +90,51 @@ const PropertyGridBDS: React.FC<PropertyGridProps> = ({ properties }) => {
             </div>
 
             <div className="profile-property-content">
-              <div className="profile-property-stars">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <span
-                    key={star}
-                    style={{
-                      color: star <= property.rating ? "#facc15" : "#d1d5db",
-                    }}
-                  >
-                    ★
-                  </span>
-                ))}
-              </div>
+              {renderStars(property.rating)}
               <h3 className="profile-property-description">
                 {property.description}
               </h3>
               <div className="profile-property-details">
-  <div className="profile-property-detail">
-    🏠 {property.bedrooms} phòng
-  </div>
-  <div className="profile-property-detail">
-    📐 {property.area}
-  </div>
-</div>
-
-
+                <div className="profile-property-detail">
+                  🏠 {property.bedrooms} phòng
+                </div>
+                <div className="profile-property-detail">
+                  📐 {property.area}
+                </div>
+              </div>
               <p className="profile-property-address">{property.address}</p>
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Phân trang */}
+      <div className="profile-pagination">
+        <button
+          className="profile-pagination-btn"
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          <ChevronLeftIcon className="w-5 h-5" />
+        </button>
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+          <button
+            key={page}
+            className={`profile-pagination-btn ${
+              currentPage === page ? "profile-active-page" : ""
+            }`}
+            onClick={() => handlePageChange(page)}
+          >
+            {page}
+          </button>
+        ))}
+        <button
+          className="profile-pagination-btn"
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+        >
+          <ChevronRightIcon className="w-5 h-5" />
+        </button>
       </div>
     </div>
   );

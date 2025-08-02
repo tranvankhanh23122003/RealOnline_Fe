@@ -11,6 +11,10 @@ import RequestList from "../components/Profile/MucDanhSachYeuCau";
 import AppointmentList from "../components/Profile/MucDanhSachLichHen"; 
 import "../styles/Profile.css";
 import PropertyGridBDS from "../components/Profile/PropertyGrid_BDS";
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from "@heroicons/react/24/outline";
 
 const Profile = () => {
   type CanItem = {
@@ -212,20 +216,18 @@ const Profile = () => {
               selectedCategory !== "Danh sách lịch hẹn" && (
                 <div className="mt-4 flex justify-center items-center space-x-2 pb-10">
                   <button
-                    className="px-3 py-1 bg-gray-200 rounded-l hover:bg-gray-300"
+                    className="profile-pagination-btn"
                     onClick={() => handlePageChange(currentPage - 1)}
                     disabled={currentPage === 1}
                   >
-                    {"<"}
+                    <ChevronLeftIcon className="w-5 h-5" />
                   </button>
                   {Array.from({ length: totalPages }, (_, i) => i + 1).map(
                     (page) => (
                       <button
                         key={page}
-                        className={`px-3 py-1 ${
-                          currentPage === page
-                            ? "bg-blue-500 text-white"
-                            : "bg-gray-200 hover:bg-gray-300"
+                        className={`profile-pagination-btn ${
+                          currentPage === page ? "profile-active-page" : ""
                         }`}
                         onClick={() => handlePageChange(page)}
                       >
@@ -234,11 +236,11 @@ const Profile = () => {
                     )
                   )}
                   <button
-                    className="px-3 py-1 bg-gray-200 rounded-r hover:bg-gray-300"
+                    className="profile-pagination-btn"
                     onClick={() => handlePageChange(currentPage + 1)}
                     disabled={currentPage === totalPages}
                   >
-                    {">"}
+                    <ChevronRightIcon className="w-5 h-5" />
                   </button>
                 </div>
               )}

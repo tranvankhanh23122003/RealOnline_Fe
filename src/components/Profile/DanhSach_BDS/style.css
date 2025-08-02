@@ -40,7 +40,6 @@
     text-transform: capitalize;
   }
   
-  /* Màu cho từng trạng thái */
   .status-pending {
     background-color: #fff4e5;
     color: #d35400;
@@ -131,7 +130,6 @@
     color: #e74c3c;
   }
   
-  /* Responsive Design */
   @media (max-width: 768px) {
     .profile-table__item {
       padding: 12px;

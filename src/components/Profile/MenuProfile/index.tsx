@@ -11,7 +11,7 @@ interface MenuProps {
 const Menu: React.FC<MenuProps> = ({ categories, selectedCategory, setSelectedCategory }) => {
   const [expanded, setExpanded] = useState<{ [key: string]: boolean }>({
     "Quản lý căn": false,
-    "Quản lý giao dịch & hợp đồng": false,
+    "Cập nhật đơn hàng & khuyến mãi": false,
     "Quản lý yêu cầu": false,
     "Quản lý thông tin tài khoản": false,
   });
@@ -58,23 +58,23 @@ const Menu: React.FC<MenuProps> = ({ categories, selectedCategory, setSelectedCa
         )}
         <div
           className="profile-menu-item"
-          onClick={() => toggleExpand("Quản lý giao dịch & hợp đồng")}
+          onClick={() => toggleExpand("Cập nhật đơn hàng & khuyến mãi")}
         >
-          Quản lý giao dịch & hợp đồng
+          Cập nhật đơn hàng & khuyến mãi
         </div>
-        {expanded["Quản lý giao dịch & hợp đồng"] && (
+        {expanded["Cập nhật đơn hàng & khuyến mãi"] && (
           <div className="profile-submenu">
             <div
-              className={`profile-submenu-item ${selectedCategory === "Quản lý đồng" ? "active" : ""}`}
-              onClick={() => setSelectedCategory("Quản lý đồng")}
+              className={`profile-submenu-item ${selectedCategory === "Cập nhật đơn hàng" ? "active" : ""}`}
+              onClick={() => setSelectedCategory("Cập nhật đơn hàng")}
             >
-              Quản lý hợp đồng
+              Cập nhật đơn hàng
             </div>
             <div
-              className={`profile-submenu-item ${selectedCategory === "Quản lý giao dịch" ? "active" : ""}`}
-              onClick={() => setSelectedCategory("Quản lý giao dịch")}
+              className={`profile-submenu-item ${selectedCategory === "Khuyến mãi" ? "active" : ""}`}
+              onClick={() => setSelectedCategory("Khuyến mãi")}
             >
-              Quản lý giao dịch
+              Khuyến mãi
             </div>
           </div>
         )}
