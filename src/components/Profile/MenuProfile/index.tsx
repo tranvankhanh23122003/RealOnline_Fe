@@ -40,7 +40,7 @@ const Menu: React.FC<MenuProps> = ({ categories, selectedCategory, setSelectedCa
               className={`profile-submenu-item ${selectedCategory === "Bất động sản" ? "active" : ""}`}
               onClick={() => setSelectedCategory("Bất động sản")}
             >
-              Bất động sản
+              Đơn Hàng
             </div>
             <div
               className={`profile-submenu-item ${selectedCategory === "Đã xem" ? "active" : ""}`}

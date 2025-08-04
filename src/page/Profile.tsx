@@ -8,9 +8,9 @@ import ProjectGridTDC from "../components/Profile/PropertyGrid_TDS";
 import InfoAccount from "../components/Profile/ThongTinTaiKhoan";
 import ChangePassword from "../components/Profile/ThayDoiMatKhau";
 import RequestList from "../components/Profile/MucDanhSachYeuCau";
-import AppointmentList from "../components/Profile/MucDanhSachLichHen"; 
+import AppointmentList from "../components/Profile/MucDanhSachLichHen";
+import OrderDetail from "../components/Profile/OrderDetail";
 import "../styles/Profile.css";
-import PropertyGridBDS from "../components/Profile/PropertyGrid_BDS";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -60,7 +60,7 @@ const Profile = () => {
     }))
   );
 
-  const categories = ["Tất cả", "Giữ chỗ", "Đã cọc", "Đã mua", "Chuyển nhượng", "Đã xem", "Yêu thích", "Bất động sản", "Thông tin tài khoản", "Thay đổi mật khẩu", "Danh sách yêu cầu", "Danh sách lịch hẹn"];
+  const categories = ["Tất cả", "Giữ chỗ", "Đã cọc", "Đã mua", "Chuyển nhượng", "Đã xem", "Yêu thích", "Bất động sản", "Thông tin tài khoản", "Thay đổi mật khẩu", "Danh sách yêu cầu", "Danh sách lịch hẹn", "Cập nhật đơn hàng"];
 
   const filteredData = data.filter(
     (item) =>
@@ -106,7 +106,7 @@ const Profile = () => {
   const [toggleState, setToggleState] = useState("Bất động sản");
 
   useEffect(() => {
-    console.log("Selected category:", selectedCategory); // Debug để kiểm tra giá trị
+    console.log("Selected category:", selectedCategory);
     if (selectedCategory === "Bất động sản") {
       setSelectedCategory("Tất cả");
     }
@@ -127,40 +127,14 @@ const Profile = () => {
         )}
         {selectedCategory !== "" && (
           <>
-            {selectedCategory !== "Đã xem" &&
-              selectedCategory !== "Yêu thích" &&
-              selectedCategory !== "Thông tin tài khoản" &&
-              selectedCategory !== "Thay đổi mật khẩu" &&
-              selectedCategory !== "Danh sách yêu cầu" &&
-              selectedCategory !== "Danh sách lịch hẹn" && (
-                <>
-                  <Header
-                    selectedCategory={selectedCategory}
-                    setSelectedCategory={setSelectedCategory}
-                    data={data}
-                    setData={setData}
-                  />
-                  <SearchBar
-                    searchTerm={searchTerm}
-                    setSearchTerm={setSearchTerm}
-                    selectedCategory={selectedCategory}
-                    selectedStatus={selectedStatus}
-                    setSelectedStatus={setSelectedStatus}
-                  />
-                  <Table
-                    data={currentItems}
-                    setSelectedItem={setSelectedItem}
-                    selectedCategory={selectedCategory}
-                  />
-                </>
-              )}
-            {selectedCategory === "Đã xem" && (
+            {selectedCategory === "Cập nhật đơn hàng" ? (
+              <OrderDetail selectedItem={selectedItem} data={data} />
+            ) : selectedCategory === "Đã xem" ? (
               <>
                 <h1 className="text-3xl font-bold text-gray-800 mb-6">Đã Xem</h1>
-                <PropertyGridBDS properties={viewedProperties} />
+                <ProjectGridBDS properties={viewedProperties} />
               </>
-            )}
-            {selectedCategory === "Yêu thích" && (
+            ) : selectedCategory === "Yêu thích" ? (
               <>
                 <h1 className="text-3xl font-bold text-gray-800 mb-6">Yêu Thích</h1>
                 <div className="mb-6 ml-6 w-fit border border-gray-300 rounded-lg overflow-hidden flex">
@@ -191,12 +165,37 @@ const Profile = () => {
                   <ProjectGridTDC projects={projectProperties} />
                 )}
               </>
+            ) : selectedCategory === "Thông tin tài khoản" ? (
+              <InfoAccount />
+            ) : selectedCategory === "Thay đổi mật khẩu" ? (
+              <ChangePassword />
+            ) : selectedCategory === "Danh sách yêu cầu" ? (
+              <RequestList />
+            ) : selectedCategory === "Danh sách lịch hẹn" ? (
+              <AppointmentList />
+            ) : (
+              <>
+                <Header
+                  selectedCategory={selectedCategory}
+                  setSelectedCategory={setSelectedCategory}
+                  data={data}
+                  setData={setData}
+                />
+                <SearchBar
+                  searchTerm={searchTerm}
+                  setSearchTerm={setSearchTerm}
+                  selectedCategory={selectedCategory}
+                  selectedStatus={selectedStatus}
+                  setSelectedStatus={setSelectedStatus}
+                />
+                <Table
+                  data={currentItems}
+                  setSelectedItem={setSelectedItem}
+                  selectedCategory={selectedCategory}
+                />
+              </>
             )}
-            {selectedCategory === "Thông tin tài khoản" && <InfoAccount />}
-            {selectedCategory === "Thay đổi mật khẩu" && <ChangePassword />}
-            {selectedCategory === "Danh sách yêu cầu" && <RequestList />}
-            {selectedCategory === "Danh sách lịch hẹn" && <AppointmentList />}
-            {selectedItem && (
+            {selectedItem && selectedCategory !== "Cập nhật đơn hàng" && (
               <div className="mt-4 p-4 bg-gray-100 rounded">
                 <h3 className="text-lg font-bold">Chi tiết</h3>
                 <p>{newSectionData}</p>
@@ -213,7 +212,8 @@ const Profile = () => {
               selectedCategory !== "Thông tin tài khoản" &&
               selectedCategory !== "Thay đổi mật khẩu" &&
               selectedCategory !== "Danh sách yêu cầu" &&
-              selectedCategory !== "Danh sách lịch hẹn" && (
+              selectedCategory !== "Danh sách lịch hẹn" &&
+              selectedCategory !== "Cập nhật đơn hàng" && (
                 <div className="mt-4 flex justify-center items-center space-x-2 pb-10">
                   <button
                     className="profile-pagination-btn"
