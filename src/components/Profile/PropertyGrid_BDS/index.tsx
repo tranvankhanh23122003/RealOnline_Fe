@@ -1,8 +1,5 @@
 import { useState } from "react";
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-} from "@heroicons/react/24/outline";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import Slide1 from "../../../assets/images/baner1.png";
 import "./style.css";
 
