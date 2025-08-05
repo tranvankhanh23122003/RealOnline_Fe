@@ -10,7 +10,6 @@ import ChangePassword from "../components/Profile/ThayDoiMatKhau";
 import RequestList from "../components/Profile/MucDanhSachYeuCau";
 import AppointmentList from "../components/Profile/MucDanhSachLichHen";
 import OrderDetail from "../components/Profile/OrderDetail";
-import "../styles/Profile.css";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
