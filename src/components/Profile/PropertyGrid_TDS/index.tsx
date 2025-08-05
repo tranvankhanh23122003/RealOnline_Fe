@@ -1,5 +1,5 @@
 import React from "react";
-import { ChevronDownIcon, MapPinIcon } from "@heroicons/react/24/outline";
+import { MapPinIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
 import SLide1 from "../../../assets/images/baner1.png"
 import './style.css'

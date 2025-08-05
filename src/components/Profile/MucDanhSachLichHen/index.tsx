@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import Slide1 from "../../../assets/images/baner1.png";
 import "./style.css";

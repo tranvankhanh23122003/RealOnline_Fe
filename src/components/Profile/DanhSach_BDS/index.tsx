@@ -33,7 +33,7 @@
     }
   };
   
-  const Table: React.FC<TableProps> = ({ data, setSelectedItem, selectedCategory }) => {
+  const Table: React.FC<TableProps> = ({ data, setSelectedItem }) => {
     return (
       <div className="profile-table__container">
         {data.map((item) => (

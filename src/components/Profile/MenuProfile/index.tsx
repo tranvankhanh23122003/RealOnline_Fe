@@ -8,7 +8,7 @@ interface MenuProps {
   setSelectedCategory: (category: string) => void;
 }
 
-const Menu: React.FC<MenuProps> = ({ categories, selectedCategory, setSelectedCategory }) => {
+const Menu: React.FC<MenuProps> = ({ selectedCategory, setSelectedCategory }) => {
   const [expanded, setExpanded] = useState<{ [key: string]: boolean }>({
     "Quản lý căn": false,
     "Cập nhật đơn hàng & khuyến mãi": false,

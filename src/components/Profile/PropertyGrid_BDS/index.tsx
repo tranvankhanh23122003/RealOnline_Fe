@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import {
-  ChevronDownIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "@heroicons/react/24/outline";
-import { useNavigate } from "react-router-dom";
 import Slide1 from "../../../assets/images/baner1.png";
 import "./style.css";
 
@@ -24,7 +22,6 @@ interface PropertyGridProps {
 }
 
 const PropertyGridBDS: React.FC<PropertyGridProps> = ({ properties }) => {
-  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6; // Số mục trên mỗi trang
 

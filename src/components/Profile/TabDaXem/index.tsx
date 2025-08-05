@@ -1,4 +1,4 @@
-import React from "react";
+
 import PropertyGridBDS from "../PropertyGrid_BDS";
 import './style.css'
 const ViewedSection = ({ properties }: { properties: any[] }) => {
