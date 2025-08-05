@@ -165,7 +165,7 @@ const Header_menu = () => {
       </div>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <div className="flex items-center">
+          <div className="flex items-center cursor-pointer" onClick={() => navigate("/")}>
             <img src={logoImage} alt="TDC Logo" className="h-10 lg:h-[68px]" />
           </div>
           <div className="hidden lg:flex flex-1 max-w-2xl mx-8">
