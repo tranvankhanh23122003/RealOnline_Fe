@@ -64,9 +64,7 @@ export default function SliderWithMiniSlides({
               key={index}
               src={img}
               alt={`Mini Slide ${index + 1}`}
-              className={`phankhu-mini-slide ${
-                index === currentSlide ? "active" : ""
-              }`}
+              className={`phankhu-mini-slide ${index === currentSlide ? "active" : ""}`}
               onClick={() => handleImageClick(img, index)}
             />
           ))}
