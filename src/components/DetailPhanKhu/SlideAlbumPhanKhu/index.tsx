@@ -47,7 +47,7 @@ export default function SliderWithMiniSlides({
               <br />
               <a href="/" className="phankhu-back-link">
                 &lt; Về trang chủ
-              </a>
+              </a> 
             </div>
             <div className="phankhu-bottom-left-text">
               <h3>{title}</h3>

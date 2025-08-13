@@ -77,11 +77,13 @@
   background-color: #e5e7eb;
   padding: 12px;
   border-radius: 8px;
-  text-align: center;
   font-weight: bold;
   color: #111827;
   font-size: 0.95rem;
   cursor: pointer;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 /* Responsive */

@@ -1,4 +1,3 @@
-"use client";
 
 import Slide1 from "../assets/images/baner1.png";
 import Slide2 from "../assets/images/khu-cong-nghiep.png";
@@ -81,7 +80,14 @@ export default function DuAn() {
       <h2>Tài liệu biệt thự cao cấp Cocoland</h2>
       <FileTaiLieu />
 
-      <div className="title-with-legend">
+  
+    </div>
+
+    <div className="right-section">
+      <TuVanForm />
+    </div>
+  </div>
+  <div className="title-with-legend">
         <h2>Tổng mặt bằng biệt thự cao cấp Cocoland</h2>
         <div className="legend">
           <div className="legend-item">
@@ -98,13 +104,6 @@ export default function DuAn() {
           </div>
         </div>
       </div>
-    </div>
-
-    <div className="right-section">
-      <TuVanForm />
-    </div>
-  </div>
-
   <div className="info-form">
     <div className="matbang3d-section">
       <MatBang3D />

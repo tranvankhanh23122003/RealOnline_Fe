@@ -1,4 +1,4 @@
-/* Tiêu đề */
+
 .sanpham-title {
   font-size: 2.0em;
   font-weight: bold;
@@ -6,14 +6,12 @@
   color: #1f2937;
 }
 
-/* Wrapper */
 .sanpham-wrapper {
   max-width: 1200px;
   margin: -100px auto 0 auto; 
   padding: 20px;
 }
 
-/* Card List */
 .card-list-container {
   display: flex;
   flex-wrap: wrap;
@@ -21,7 +19,6 @@
   justify-content: space-between;
 }
 
-/* Card */
 .sanpham-card {
   width: calc(25% - 12px);
   background: #fff;
@@ -50,8 +47,6 @@
   height: 150px;
   object-fit: cover;
 }
-
-/* Price Info */
 .sanpham-price-info {
   margin-bottom: 10px;
 }
@@ -76,16 +71,21 @@
 .sanpham-icon-row {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 6px;
+  align-items: center;
+  gap: 8px;
   color: #374151;
   margin-bottom: 10px;
+}
+
+.sanpham-icon-row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .sanpham-icon {
   color: #2563eb;
   font-size: 14px;
-  margin-right: 4px;
 }
 
 .divider {

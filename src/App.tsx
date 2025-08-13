@@ -2,15 +2,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./page/Homepage";
 import ListBDS from "./page/ListBDS";
-import DuAn from "./page/duAn";
+import DuAn from "./page/Duan";
 import MainLayout from "./layout/MainLayout";
 import ListTDC from "./page/ListTDC";
 import SoSanhSp from "./page/SoSanhSP";
-import PhanKhu from "./page/phanKhu";
-import SanPham from "./page/sanPham";
+import PhanKhu from "./page/Phankhu";
+import SanPham from "./page/Sanpham";
 import Profile from "./page/Profile";
 import '@fortawesome/fontawesome-free/css/all.min.css';
-
 function App() {
   return (
     <>

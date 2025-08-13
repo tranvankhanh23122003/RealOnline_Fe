@@ -16,7 +16,7 @@ const Menu: React.FC<MenuProps> = ({ selectedCategory, setSelectedCategory }) =>
     "Quản lý thông tin tài khoản": false,
   });
 
-  const toggleExpand = (category: string) => {
+  const toggleExpand = (category: string) => { 
     setExpanded((prev) => ({ ...prev, [category]: !prev[category] }));
   };
 

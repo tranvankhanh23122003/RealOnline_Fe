@@ -13,7 +13,7 @@ const TinTucPhanKhu = () => {
   return (
     <div className="tintuc-page">
       <h2 style={{ fontSize: "2.5rem ", fontWeight: "bold" }}>Tin Tức</h2>
-      <p>Thông tin ưu đãi</p>
+      <p style={{marginBottom: "10px"}}>Thông tin dự án và ưu đãi TDC</p>
 
       <div className="tintuc-container">
         <div className="left-section">
@@ -25,11 +25,11 @@ const TinTucPhanKhu = () => {
             />
           </div>
           <div className="slide-info">
-            <h3>Tiêu đề tin lớn</h3>
-            <p>Nội dung ngắn gọn tóm tắt tin tức chính</p>
+            <h3>Toàn bộ thông tin cần biết về khu biệt thự cao cấp CoColand</h3>
+            <p>Với diện tích 18 ha tọa lạc tại khu Công nghiệp và Đô thị Mỹ Phước III. Khu biệt thự Coco Land do Công ty Cổ phần Kinh doanh và Phát triển Bình Dương (TDC) làm chủ đầu tư, có được địa thế đắc địa đó chính là “tầm cao”. </p>
             <p className="date">Ngày đăng: 08/07/2025 14:00</p>
           </div>
-        </div>
+        </div>  
 
         <div className="right-section-phan-khu">
           <div className="slide-small-wrapper">
@@ -40,14 +40,14 @@ const TinTucPhanKhu = () => {
                 className="slide-image"
               />
               <div className="slide-info">
-                <h3>Tiêu đề tin 1</h3>
+                <h3>Khu biệt thự cao cấp CoColand...</h3>
                 <p className="date">08/07/2025 14:00</p>
               </div>
             </div>
             <div className="slide-small">
               <img src={images[1]} alt="Slide nhỏ 2" className="slide-image" />
               <div className="slide-info">
-                <h3>Tiêu đề tin 2</h3>
+                <h3>Khu biệt thự cao cấp CoColand...</h3>
                 <p className="date">08/07/2025 14:00</p>
               </div>
             </div>

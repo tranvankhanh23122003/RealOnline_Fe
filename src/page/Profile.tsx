@@ -9,11 +9,13 @@ import InfoAccount from "../components/Profile/ThongTinTaiKhoan";
 import ChangePassword from "../components/Profile/ThayDoiMatKhau";
 import RequestList from "../components/Profile/MucDanhSachYeuCau";
 import AppointmentList from "../components/Profile/MucDanhSachLichHen";
-import OrderDetail from "../components/Profile/OrderDetail";
+import OrderDetail from "../components/Profile/ChiTietDatHang";
+import InfoOrderDetails from "../components/Profile/ThongTinChiTietDonHang";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "@heroicons/react/24/outline";
+import "../styles/Profile.css";
 
 const Profile = () => {
   type CanItem = {
@@ -32,6 +34,7 @@ const Profile = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [showReviewForm, setShowReviewForm] = useState(false);
   const itemsPerPage = 3;
 
   const [data, setData] = useState<CanItem[]>(() =>
@@ -59,7 +62,7 @@ const Profile = () => {
     }))
   );
 
-  const categories = ["Tất cả", "Giữ chỗ", "Đã cọc", "Đã mua", "Chuyển nhượng", "Đã xem", "Yêu thích", "Bất động sản", "Thông tin tài khoản", "Thay đổi mật khẩu", "Danh sách yêu cầu", "Danh sách lịch hẹn", "Cập nhật đơn hàng"];
+  const categories = ["Tất cả", "Giữ chỗ", "Đã cọc", "Đã mua", "Chuyển nhượng", "Đã xem", "Yêu thích", "Bất động sản", "Thông tin tài khoản", "Thay đổi mật khẩu", "Danh sách yêu cầu", "Danh sách lịch hẹn", "Cập nhật đơn hàng", "Khuyến mãi"];
 
   const filteredData = data.filter(
     (item) =>
@@ -73,12 +76,24 @@ const Profile = () => {
   const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
-  const newSectionData = selectedItem
-    ? `Chi tiết: Mã căn: ${selectedItem.code}, Dự án: ${selectedItem.project}, Giá: ${selectedItem.price}, Ngày giờ: ${selectedItem.dateTime}, Trạng thái: ${selectedItem.status}, Tiến độ thanh toán: ${selectedItem.paymentProgress || "N/A"}`
-    : "";
-
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
+  };
+
+  const handleReviewClick = (item: CanItem) => {
+    setSelectedItem(item);
+    setShowReviewForm(true);
+  };
+
+  const handleBackToList = () => {
+    setShowReviewForm(false);
+    setSelectedItem(null);
+  };
+
+  const handleSetSelectedCategory = (category: string) => {
+    setSelectedCategory(category);
+    setShowReviewForm(false);
+    setSelectedItem(null);
   };
 
   const viewedProperties = Array.from({ length: 16 }, (_, index) => ({
@@ -108,51 +123,50 @@ const Profile = () => {
     console.log("Selected category:", selectedCategory);
     if (selectedCategory === "Bất động sản") {
       setSelectedCategory("Tất cả");
+      setShowReviewForm(false);
+      setSelectedItem(null);
     }
   }, [selectedCategory]);
 
   return (
-    <div className="flex h-screen">
+    <div className="profile-container">
       <Menu
         categories={categories}
         selectedCategory={selectedCategory}
-        setSelectedCategory={setSelectedCategory}
+        setSelectedCategory={handleSetSelectedCategory}
       />
-      <div className="flex-1 p-4 w-3/4 overflow-y-auto">
+      <div className="profile-content">
         {selectedCategory === "" && (
-          <div className="text-center text-gray-500">
+          <div className="profile-placeholder-text">
             Vui lòng chọn vào mục menu để xem chi tiết
           </div>
         )}
         {selectedCategory !== "" && (
           <>
-            {selectedCategory === "Cập nhật đơn hàng" ? (
+            {showReviewForm ? (
+              <InfoOrderDetails
+                selectedItem={selectedItem}
+                onBack={handleBackToList}
+              />
+            ) : selectedCategory === "Cập nhật đơn hàng" ? (
               <OrderDetail selectedItem={selectedItem} data={data} />
             ) : selectedCategory === "Đã xem" ? (
               <>
-                <h1 className="text-3xl font-bold text-gray-800 mb-6">Đã Xem</h1>
+                <h1 className="profile-title">Đã Xem</h1>
                 <ProjectGridBDS properties={viewedProperties} />
               </>
             ) : selectedCategory === "Yêu thích" ? (
               <>
-                <h1 className="text-3xl font-bold text-gray-800 mb-6">Yêu Thích</h1>
-                <div className="mb-6 ml-6 w-fit border border-gray-300 rounded-lg overflow-hidden flex">
+                <h1 className="profile-title">Yêu Thích</h1>
+                <div className="profile-toggle-container">
                   <button
-                    className={`px-4 py-1.5 text-sm font-medium ${
-                      toggleState === "Bất động sản"
-                        ? "bg-[#1B3459] text-white"
-                        : "bg-white text-gray-700 hover:bg-gray-100"
-                    }`}
+                    className={`profile-toggle-btn ${toggleState === "Bất động sản" ? "profile-toggle-btn-active" : ""}`}
                     onClick={() => setToggleState("Bất động sản")}
                   >
                     Bất động sản
                   </button>
                   <button
-                    className={`px-4 py-1.5 text-sm font-medium ${
-                      toggleState === "Dự án"
-                        ? "bg-[#1B3459] text-white"
-                        : "bg-white text-gray-700 hover:bg-gray-100"
-                    }`}
+                    className={`profile-toggle-btn ${toggleState === "Dự án" ? "profile-toggle-btn-active" : ""}`}
                     onClick={() => setToggleState("Dự án")}
                   >
                     Dự án
@@ -172,11 +186,15 @@ const Profile = () => {
               <RequestList />
             ) : selectedCategory === "Danh sách lịch hẹn" ? (
               <AppointmentList />
+            ) : selectedCategory === "Khuyến mãi" ? (
+              <div className="profile-placeholder-text">
+                Chưa có khuyến mãi nào
+              </div>
             ) : (
               <>
                 <Header
                   selectedCategory={selectedCategory}
-                  setSelectedCategory={setSelectedCategory}
+                  setSelectedCategory={handleSetSelectedCategory}
                   data={data}
                   setData={setData}
                 />
@@ -191,20 +209,9 @@ const Profile = () => {
                   data={currentItems}
                   setSelectedItem={setSelectedItem}
                   selectedCategory={selectedCategory}
+                  onReviewClick={handleReviewClick}
                 />
               </>
-            )}
-            {selectedItem && selectedCategory !== "Cập nhật đơn hàng" && (
-              <div className="mt-4 p-4 bg-gray-100 rounded">
-                <h3 className="text-lg font-bold">Chi tiết</h3>
-                <p>{newSectionData}</p>
-                <button
-                  className="mt-2 px-4 py-2 bg-blue-500 text-white rounded"
-                  onClick={() => setSelectedItem(null)}
-                >
-                  Đóng
-                </button>
-              </div>
             )}
             {selectedCategory !== "Đã xem" &&
               selectedCategory !== "Yêu thích" &&
@@ -212,14 +219,16 @@ const Profile = () => {
               selectedCategory !== "Thay đổi mật khẩu" &&
               selectedCategory !== "Danh sách yêu cầu" &&
               selectedCategory !== "Danh sách lịch hẹn" &&
-              selectedCategory !== "Cập nhật đơn hàng" && (
-                <div className="mt-4 flex justify-center items-center space-x-2 pb-10">
+              selectedCategory !== "Cập nhật đơn hàng" &&
+              selectedCategory !== "Khuyến mãi" &&
+              !showReviewForm && (
+                <div className="profile-pagination-container">
                   <button
                     className="profile-pagination-btn"
                     onClick={() => handlePageChange(currentPage - 1)}
                     disabled={currentPage === 1}
                   >
-                    <ChevronLeftIcon className="w-5 h-5" />
+                    <ChevronLeftIcon className="profile-icon" />
                   </button>
                   {Array.from({ length: totalPages }, (_, i) => i + 1).map(
                     (page) => (
@@ -239,7 +248,7 @@ const Profile = () => {
                     onClick={() => handlePageChange(currentPage + 1)}
                     disabled={currentPage === totalPages}
                   >
-                    <ChevronRightIcon className="w-5 h-5" />
+                    <ChevronRightIcon className="profile-icon" />
                   </button>
                 </div>
               )}

@@ -359,6 +359,11 @@
   justify-content: space-between;
   gap: 10px;
 }
+.phankhu-icon{
+  color: #2563eb;
+    font-size: 14px;
+    margin-right: 4px;
+}
 
 .phankhu-icon-item {
   flex: 1;
